@@ -2,150 +2,258 @@
 <!-- HTML 문서에서 <html> 태그를 정의하기 전 가장 먼저 선언되어야만 함. 선언된 페이지의 HTML 버전이 무엇인지를 웹 브라우저에 알려주는 역할을 하는 선언문-->
 
 <html lang="ko"> 
-<!--모든 요소 속성에 대한 기본 언어를 지정-->
-
-<head> 
-<!--브라우저 화면에 보이진 않으나 데이터를 정의. head 태그 내부에 들어가는 걸로는 title O, meta O, link O, style, script가 있음.-->
-        
-<meta charset="utf-8"> 
-<!-- 브라우저에게 text를 어케 그려달라는지 말해주는 것 / 이 태그가 없으면 한글과 특수문자들이 깨져 나올 수 있다.-->
-        
-<title></title> 
-<!--페이지 문서의 제목을 표현-->
-        
-<link rel="stylesheet" type="text/css" href="kksc.css"> 
-<!--rel? / type는 외부 리소스의 미디어 타입 명시? (HTML5부터 없어도 됨!) / stylesheet는 HTML 문서에 CSS 스타일 시트를 연결하는데 사용한다.-->
+        <!--모든 요소 속성에 대한 기본 언어를 지정-->
     
-</head>
-    
-<body> 
-<!--HTML문서에 텍스트, 하이퍼링크, 이미지, 리스트(?) 등등 포함. body는 단 하나.-->
+        <head> 
+                <!--브라우저 화면에 보이진 않으나 데이터를 정의. head 태그 내부에 들어가는 걸로는 title O, meta O, link O, style, script가 있음.-->
         
-<div id="wrap"> 
-<!--레이아웃을 나누는데 주로 쓰임. CSS와 연동하여 쓰임-->
+                <meta charset="utf-8"> 
+                <!-- 브라우저에게 text를 어케 그려달라는지 말해주는 것 / 이 태그가 없으면 한글과 특수문자들이 깨져 나올 수 있다.-->
+        
+                <title></title> 
+                <!--페이지 문서의 제목을 표현-->
+        
+                <link rel="stylesheet" type="text/css" href="kksc.css"> 
+                <!--rel? / type는 외부 리소스의 미디어 타입 명시? (HTML5부터 없어도 됨!) / stylesheet는 HTML 문서에 CSS 스타일 시트를 연결하는데 사용한다.-->
+    
+        </head>
+    
+        <body> 
+                <!--HTML문서에 텍스트, 하이퍼링크, 이미지, 리스트(?) 등등 포함. body는 단 하나.-->
+        
+                <div id="wrap"> 
+                        <!--레이아웃을 나누는데 주로 쓰임. CSS와 연동하여 쓰임-->
             
-<header id ="header" class = "header"> 
-<!--헤더 테그 안에는 h1-6(제목 텍스트 나타낼때 사용하는 태그)인 제목 요소를 포함할 수 있다.-->
+                        <header id ="header" class = "header"> 
+                                <!--헤더 테그 안에는 h1-6(제목 텍스트 나타낼때 사용하는 태그)인 제목 요소를 포함할 수 있다. -->
                 
-<div class = "inner"> 
-<!--id와 같은 기능을 하지만 class태그는 같은 이름을 중복해 사용할 수 있고 id가 고유한 식별을 목적으로 사용한다면 class는 css 쿼리문 밑 재사용을 목적으로 한다. name 속성? -->
+                                <div class = "inner"> 
+                                        <!--id와 같은 기능을 하지만 class태그는 같은 이름을 중복해 사용할 수 있다. -->
+                                        <!--id가 고유한 식별을 목적으로 사용한다면 class는 css 쿼리문 밑 재사용을 목적으로 한다. name 속성? -->
                     
-<h1 class = "logo">
+                                        <h1 class = "logo">
                         
-<a href ="#" target="_blank">Portfolio </a> 
-<!--a 태그(다른 페이지 연결할 때 사용하는 하이퍼링크 정의할 때 사용하고 a 태그에는 링크의 목적지 가리키는 href 속성 필요) 사이에 들어갈때와 차이가 뭘까? / _self : 현재 창에서 링크 오픈. _blank - 새 창에서 링크 오픈-->
-
-</h1>
+                                                <a href ="#" target="_blank">Portfolio 
+                                                </a> 
+                                                <!-- a 태그(다른 페이지 연결할 때 사용하는 하이퍼링크 정의할 때 사용한다. --> 
+                                                <!-- a 태그에는 링크의 목적지 가리키는 href 속성 필요) 사이에 들어갈때와 차이가 뭘까? -->
+                                                <!-- _self : 현재 창에서 링크 오픈. _blank - 새 창에서 링크 오픈 -->
                     
-<nav id = "gnb" class = "gnb"> 
-<!--nav는 다른 웹 페이지로 연결하거나 현재 웹페이지 콘텐츠 내부로 연결되는 탐색을 위한 링크가 있는 영역-->
-                        <ul class="gnb_list"> <!--순서 중요X 목록-->
-                            <li> <!--목록 안의 아이템을 나타낸다. 반드시 목록을 나타내는 <ul> 혹은 <ol> 요소 안에 항목으로서 <li> 요쇼가 위치해야 함.-->
-                                <a href="#home">HOME</a> <!-- <a> 태그(앵커 태크)는 href 특성 을 통해 다른 페이지나 같은 페이지의 특정 위치, 파일, 이메일 주소와 그 외 다른 URL로 연결할 수 있는 하이퍼링크를 만드는 기능을 가진 태그 입니다. / href는 <a> 태그 클릭 시 이동하는 URL 지정하는 속성이다. -->
-                            </li>
-                            <li>
-                                <a href="#about">ABOUT</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
-
-
-
-            <main id = "container"> 
-                <!-- body 요소의 주 콘텐츠 정의. 해당 문서의 중심 주제 또는 주요 기능과 직접적으로 관련. 하나만 존재해야하며 <article> <aside> <footer> <header> <nav>의 자손 요소 되서는 X-->
-                <section id="home" class="section sec_visual"> <!--HTML 문서의 맥락이 같은 요소들을 주제별로 그룹화해줌-->
-                    <div class="inner">
-                        <div class="text_area">
-                            <h2>가천대학교 컴퓨터공학과 24학번 김한성입니다.</h2>
-                            <p>개발자입니다.</p> 
-                            <p> </p><!--새롭게 구현해보기!-->
-                            
-                        </div>
-                    </div>
-                </section>
-                <section id="about" class="section sec_about">
+                                        </h1>
                     
-                    <div class="inner" >
+                                        <nav id = "gnb" class = "gnb"> 
+                                                <!--nav는 다른 웹 페이지로 연결하거나 현재 웹페이지 콘텐츠 내부로 연결되는 탐색을 위한 링크가 있는 영역-->
                         
-                        <div class="text_area">
-                            <dl> <!--제목과 설명이 한쌍인 설명, 정의 목록을 만드는 태그-->
-                                <dt class="title"> <!--제목을 나타내는 태그. 줄바꿈 기능 있음-->
-                                    <span>과거</span> <!-- 텍스트를 넣을 때 사용. 태그 사이 내용만 들어감. <p>와 다른 점은 <span>은 줄바꿈이 안됨.-->
-                                </dt>
-                                <dd class="desc"> <!--보통 설명을 많이 넣는 듯-->
-                                    <!--dl dt dd 태그는 제목과 함께 설명할 때 사용하고 ul ol 태그는 목차 목록을 나타낼 때 사용한다.-->
-                                    초등학교
-                                    <p>봉사위원 (6학년)</p>
-                                    <br>
-                                    중학교
-                                    <p>방송부 (1학년 - 3학년)</p>
-                                    <p>연극부 (2학년 - 3학년)</p>
-                                    <br>
-                                    고등학교
-                                    前 고등학교 1학년 부반장
-                                    <p> 前 도서부 차장</p>
-                                    <p> 前 컴퓨터 도우미 </p>
-                                </dd>
-                                
-                            </dl>
-
-                            <dl>
-                                <dt class="title">
-                                    <span>기술</span> <!-- 텍스트를 넣을 때 사용. 태그 사이 내용만 들어감. <p>와 다른 점은 <span>은 줄바꿈이 안됨.-->
-                                </dt>
-                                <dd class="desc">
-                                    Python
-                                    <p> Html / Css</p>
-                                
-                                    <br>
-                                    現 KKSC, TakeOut 팀원
-                                    <p><abbr id="kksc" title="Korea King Social Coding">KKSC</abbr>
-                                        : 가천대 코딩 동아리이다.</p>
-                                </dd>
-                            </dl>
-
-                            <dl>
-                                <dt class="title">
-                                    <span>현재</span> <!-- 텍스트를 넣을 때 사용. 태그 사이 내용만 들어감. <p>와 다른 점은 <span>은 줄바꿈이 안됨.-->
-                                </dt>
-                                <dd class="desc">
-                                    <p> 現 가천대학교 컴퓨터공학과 24학번 </p>
-                                    <p> 現 C:ode 기획 40th 팀원 </p>
-                                
-                                    <br>
-                                    現 KKSC, TakeOut 팀원
-                                    <p><abbr id="kksc" title="Korea King Social Coding">KKSC</abbr>
-                                        : 가천대 코딩 동아리이다.</p>
-                                </dd>
-                            </dl>
+                                                <ul class="gnb_list"> 
+                                                        <!--순서 중요X 목록-->
                             
-                        </div>
-                        <!-- 순서 바꾸면 오른쪽으로 감.-->
-                        <div class = "img_past">
-                            <span class="Sub text">
-                                PROGRAMMER <!-- 오류?-->
-                            </span>
-                            <img src="" alt="">
-                    </div>
-                    <div class = "img_past2">
-                        <span class="Sub text">
-                            PROGRAMMER <!-- 오류?-->
-                        </span>
-                        <img src="" alt="">
-                </div>
-                    </div>
-                    <article>
-<!-- section 태그 안에 맥락이 같은 요소의 여러 article 태그를 넣어 주제별 그룹화 가능-->
-                    </article>
-                </section>
-
-                <!--121 - 280-->
-            </main>
-            <aside>
+                                                        <li> 
+                                                                <!--목록 안의 아이템을 나타낸다. 
+                                                                반드시 목록을 나타내는 <ul> 혹은 <ol> 요소 안에 항목으로서 <li> 요쇼가 위치해야 함.-->
+                                
+                                                                <a href="#home">HOME</a> 
+                                                                <!-- <a> 태그(앵커 태크)는 href 특성을 통해 
+                                                                다른 페이지나 같은 페이지의 특정 위치, 파일, 이메일 주소와 
+                                                                그 외 다른 URL로 연결할 수 있는 하이퍼링크를 만드는 기능을 가진 태그. -->
+                                                                <!-- href는 <a> 태그 클릭 시 이동하는 URL 지정하는 속성이다. -->
+                            
+                                                        </li>
+                            
+                                                        <li>
+                                
+                                                                <a href="#about">ABOUT</a>
+                            
+                                                        </li>
+                        
+                                                </ul>
+                    
+                                        </nav>
                 
-            </aside>
+                                </div>
+            
+                        </header>
+
+
+
+            
+                        <main id = "container"> 
+                
+                                <!-- body 요소의 주 콘텐츠 정의. 해당 문서의 중심 주제 또는 주요 기능과 직접적으로 관련. -->
+                
+                                <!--하나만 존재해야하며 <article> <aside> <footer> <header> <nav>의 자손 요소 되서는 X-->
+                
+                                <section id="home" class="section sec_visual"> 
+                        
+                                        <!--HTML 문서의 맥락이 같은 요소들을 주제별로 그룹화해줌-->
+                    
+                                        <div class="inner">
+                        
+                                                <div class="text_area">
+                            
+                                                        <h2>가천대학교 컴퓨터공학과 24학번 김한성입니다.</h2>
+                            
+                                                        <p>개발자입니다.</p> 
+                            
+                                                        <p> </p><!--새롭게 구현해보기!-->
+                            
+                        
+                                                </div>
+                    
+                                        </div>
+                
+                                </section>
+                
+                                <section id="about" class="section sec_about">
+                    
+                    
+                                        <div class="inner" >
+                        
+                        
+                                                <div class="text_area">
+                            
+                                                        <dl> <!--제목과 설명이 한쌍인 설명, 정의 목록을 만드는 태그-->
+                                
+                                                                <dt class="title"> <!--제목을 나타내는 태그. 줄바꿈 기능 있음-->
+                                    
+                                                                        <span>과거</span> <!-- 텍스트를 넣을 때 사용. 태그 사이 내용만 들어감. <p>와 다른 점은 <span>은 줄바꿈이 안됨.-->
+                                
+                                                                </dt>
+                                
+                                                                <dd class="desc"> <!--보통 설명을 많이 넣는 듯-->
+                                    
+                                                                        <!--dl dt dd 태그는 제목과 함께 설명할 때 사용하고 ul ol 태그는 목차 목록을 나타낼 때 사용한다.-->
+                                    
+                                                                        초등학교
+                                    
+                                                                        <p>봉사위원 (6학년)</p>
+                                    
+                                                                        <br>
+                                    
+                                                                        중학교
+                                    
+                                                                        <p>방송부 (1학년 - 3학년)</p>
+                                    
+                                                                        <p>연극부 (2학년 - 3학년)</p>
+                                    
+                                                                        <br>
+                                    
+                                                                        고등학교
+                                    
+                                                                        前 고등학교 1학년 부반장
+                                    
+                                                                        <p> 前 도서부 차장</p>
+                                    
+                                                                        <p> 前 컴퓨터 도우미 </p>
+                                
+                                                                </dd>
+                                
+                            
+                                                        </dl>
+
+                            
+                                                        <dl>
+                                
+                                                                <dt class="title">
+                                    
+                                                                        <span>기술</span> <!-- 텍스트를 넣을 때 사용. 태그 사이 내용만 들어감. <p>와 다른 점은 <span>은 줄바꿈이 안됨.-->
+                                
+                                                                </dt>
+                                
+                                                                <dd class="desc">
+                                    
+                                                                        Python
+                                    
+                                                                        <p> Html / Css</p>
+                                
+                                    
+                                                                        <br>
+                                    
+                                                                        現 KKSC, TakeOut 팀원
+                                    
+                                                                        <p><abbr id="kksc" title="Korea King Social Coding">KKSC</abbr>
+                                        
+                                                                                : 가천대 코딩 동아리이다.</p>
+                                
+                                                                </dd>
+                            
+                                                        </dl>
+
+                            
+                                                        <dl>
+                                
+                                                                <dt class="title">
+                                    
+                                                                        <span>현재</span> <!-- 텍스트를 넣을 때 사용. 태그 사이 내용만 들어감. <p>와 다른 점은 <span>은 줄바꿈이 안됨.-->
+                                
+                                                                </dt>
+                                
+                                                                <dd class="desc">
+                                    
+                                                                        <p> 現 가천대학교 컴퓨터공학과 24학번 </p>
+                                    
+                                                                        <p> 現 C:ode 기획 40th 팀원 </p>
+                                
+                                    
+                                                                        <br>
+                                    
+                                                                        現 KKSC, TakeOut 팀원
+                                    
+                                                                        <p><abbr id="kksc" title="Korea King Social Coding">KKSC</abbr>
+                                        
+                                                                                : 가천대 코딩 동아리이다.</p>
+                                
+                                                                </dd>
+                            
+                                                        </dl>
+                            
+                        
+                                                </div>
+                        
+                                                <!-- 순서 바꾸면 오른쪽으로 감.-->
+                        
+                                                <div class = "img_past">
+                            
+                                                        <span class="Sub text">
+                                
+                                                                PROGRAMMER <!-- 오류?-->
+                            
+                                                        </span>
+                            
+                                                        <img src="" alt="">
+                    
+                                                </div>
+                    
+                                                <div class = "img_past2">
+                        
+                                                        <span class="Sub text">
+                            
+                                                                PROGRAMMER <!-- 오류?-->
+                        
+                                                        </span>
+                        
+                                                        <img src="" alt="">
+                
+                                                </div>
+                    
+                                        </div>
+                    
+                                        <article>
+
+                                                <!-- section 태그 안에 맥락이 같은 요소의 여러 article 태그를 넣어 주제별 그룹화 가능-->
+                    
+                                        </article>
+                
+                                </section>
+
+                
+                                <!--121 - 280-->
+            
+                        </main>
+            
+                        <aside>
+                
+            
+                        </aside>
             <footer id="contact" class="footer">
                 <div class="inner">
                     <div class = "img_area">
@@ -199,3 +307,4 @@
         </div>
     </body>
 </html>
+
