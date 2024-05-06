@@ -1,0 +1,9 @@
+//a와 b 출력하기
+//https://school.programmers.co.kr/learn/courses/30/lessons/181951
+var a = prompt("a 입력");
+var b = prompt("b 입력");
+
+console.log("a = ", a);
+console.log("b = ", b);
+//alert("a = " + a);
+//alert("b = " + b);
