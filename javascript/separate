@@ -1,0 +1,11 @@
+//홀짝 구분하기
+//https://school.programmers.co.kr/learn/courses/30/lessons/181944
+
+var a = prompt("n 입력");
+console.log("n = ", n);
+
+//홀짝 조건문 검토
+if(n % 2 == 0) {
+}
+https://goddaehee.tistory.com/225 - if/switch 조건문
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Remainder - 나머지 연산자
