@@ -1,0 +1,48 @@
+//code 설명
+
+//code runner 다운!!
+
+
+//var input = prompt("입력"); 
+//입력창 팝업 띄워 사용자로부터 입력 받음 -> 변수 저장
+
+
+//console.log(input); 
+//출력?
+
+
+//const readline = require('readline'); 
+//require - 외부 라이브러리를 불러옴
+//const - 블록 범위의 상수 선언
+
+
+//const rl = readline.createInterface({
+//    input: process.stdin,
+//    output: process.stdout
+//});
+//readline - 
+//input: - 
+//process - 
+//stdin - 
+//stdout - 
+
+
+//let input = [];
+//rl.on('line', function (line) {
+//    input = [line];
+//}).on('close',function(){
+//    str = input[0];
+//    console.log(str)
+//});
+//on() - 
+//line - 
+
+
+//문자열 입력 받고 분류
+//var a = prompt("문자열 입력");
+//var b = prompt("숫자 입력");
+//or
+//const a = prompt("문자열 입력");
+//const b = a.split(" ");
+//console.log(b[0]);
+
