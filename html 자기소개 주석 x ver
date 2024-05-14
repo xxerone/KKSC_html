@@ -1,0 +1,250 @@
+<!DOCTYPE html> 
+<html lang="ko"> 
+        <head> 
+                <meta charset="utf-8"> 
+                <title></title> 
+                <link rel="stylesheet" type="text/css" href="kksc.css"> 
+        </head>
+    
+        <body> 
+                <div id="wrap"> 
+                        <header id ="header" class = "header"> 
+                                <div class = "inner"> 
+                                        <h1 class = "logo">
+                        
+                                                <a href ="#" target="_blank">Portfolio 
+                                                </a> 
+                                        </h1>
+                    
+                                        <nav id = "gnb" class = "gnb"> 
+                                                <ul class="gnb_list"> 
+                                                        <li> 
+                                                                <a href="#home">HOME</a> 
+                                                        </li>
+                            
+                                                        <li>
+                                                                <a href="#about">ABOUT</a>
+                                                        </li>
+                        
+                                                </ul>
+                    
+                                        </nav>
+                
+                                </div>
+            
+                        </header>
+
+
+
+            
+                        <main id = "container"> 
+                                <section id="home" class="section sec_visual"> 
+                                        <div class="inner">
+                                                <div class="text_area">
+                                                        <h2>가천대학교 컴퓨터공학과 24학번 김한성입니다.</h2>              
+                                                        <p>개발자입니다.</p> 
+                                                        <p> </p><!--새롭게 구현해보기!-->
+                                                </div>
+                                        </div>
+                                </section>
+                
+                                <section id="about" class="section sec_about">
+                                        <div class="inner" >
+                                                <div class="text_area">
+                            
+                                                        <dl> <!--제목과 설명이 한쌍인 설명, 정의 목록을 만드는 태그-->
+                                
+                                                                <dt class="title"> <!--제목을 나타내는 태그. 줄바꿈 기능 있음-->
+                                    
+                                                                        <span>과거</span> <!-- 텍스트를 넣을 때 사용. 태그 사이 내용만 들어감. <p>와 다른 점은 <span>은 줄바꿈이 안됨.-->
+                                
+                                                                </dt>
+                                
+                                                                <dd class="desc"> <!--보통 설명을 많이 넣는 듯-->
+                                    
+                                                                        <!--dl dt dd 태그는 제목과 함께 설명할 때 사용하고 ul ol 태그는 목차 목록을 나타낼 때 사용한다.-->
+                                    
+                                                                        초등학교
+                                    
+                                                                        <p>봉사위원 (6학년)</p>
+                                    
+                                                                        <br>
+                                    
+                                                                        중학교
+                                    
+                                                                        <p>방송부 (1학년 - 3학년)</p>
+                                    
+                                                                        <p>연극부 (2학년 - 3학년)</p>
+                                    
+                                                                        <br>
+                                    
+                                                                        고등학교
+                                    
+                                                                        前 고등학교 1학년 부반장
+                                    
+                                                                        <p> 前 도서부 차장</p>
+                                    
+                                                                        <p> 前 컴퓨터 도우미 </p>
+                                
+                                                                </dd>
+                                
+                            
+                                                        </dl>
+
+                            
+                                                        <dl>
+                                
+                                                                <dt class="title">
+                                    
+                                                                        <span>기술</span> <!-- 텍스트를 넣을 때 사용. 태그 사이 내용만 들어감. <p>와 다른 점은 <span>은 줄바꿈이 안됨.-->
+                                
+                                                                </dt>
+                                
+                                                                <dd class="desc">
+                                    
+                                                                        Python
+                                    
+                                                                        <p> Html / Css</p>
+                                
+                                    
+                                                                        <br>
+                                    
+                                                                        現 KKSC, TakeOut 팀원
+                                    
+                                                                        <p><abbr id="kksc" title="Korea King Social Coding">KKSC</abbr>
+                                        
+                                                                                : 가천대 코딩 동아리이다.</p>
+                                
+                                                                </dd>
+                            
+                                                        </dl>
+
+                            
+                                                        <dl>
+                                
+                                                                <dt class="title">
+                                    
+                                                                        <span>현재</span> <!-- 텍스트를 넣을 때 사용. 태그 사이 내용만 들어감. <p>와 다른 점은 <span>은 줄바꿈이 안됨.-->
+                                
+                                                                </dt>
+                                
+                                                                <dd class="desc">
+                                    
+                                                                        <p> 現 가천대학교 컴퓨터공학과 24학번 </p>
+                                    
+                                                                        <p> 現 C:ode 기획 40th 팀원 </p>
+                                
+                                    
+                                                                        <br>
+                                    
+                                                                        現 KKSC, TakeOut 팀원
+                                    
+                                                                        <p><abbr id="kksc" title="Korea King Social Coding">KKSC</abbr>
+                                        
+                                                                                : 가천대 코딩 동아리이다.</p>
+                                
+                                                                </dd>
+                            
+                                                        </dl>
+                            
+                        
+                                                </div>
+                        
+                                                <!-- 순서 바꾸면 오른쪽으로 감.-->
+                        
+                                                <div class = "img_past">
+                            
+                                                        <span class="Sub text">
+                                
+                                                                PROGRAMMER <!-- 오류?-->
+                            
+                                                        </span>
+                            
+                                                        <img src="" alt="">
+                    
+                                                </div>
+                    
+                                                <div class = "img_past2">
+                        
+                                                        <span class="Sub text">
+                            
+                                                                PROGRAMMER <!-- 오류?-->
+                        
+                                                        </span>
+                        
+                                                        <img src="" alt="">
+                
+                                                </div>
+                    
+                                        </div>
+                    
+                                        <article>
+
+                                                <!-- section 태그 안에 맥락이 같은 요소의 여러 article 태그를 넣어 주제별 그룹화 가능-->
+                    
+                                        </article>
+                
+                                </section>
+
+                
+                                <!--121 - 280-->
+            
+                        </main>
+            
+                        <aside>
+                
+            
+                        </aside>
+            <footer id="contact" class="footer">
+                <div class="inner">
+                    <div class = "img_area">
+                        
+                        <span class="sub text">
+                            PROGRAMMER <!-- 오류?-->
+                        </span>
+                        <img src="" alt="">
+                    </div>
+                <div class="text_area">
+                    <dl>
+                        <dt>
+                            <i class="fa-solid fa-phone" style="color: aqua;">
+                            </i>
+                            PHONE
+                        </dt>
+                        <dd>
+                            <a href="tel:00000000000">
+                                010-8228-6097
+                            </a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <i class="fa-brands fa-github" style="color: aquamarine;">
+                            </i>
+                            SNS
+                        </dt>
+                        <dd>
+                            #Insta : han_seoul_27&nbsp&nbsp#Facebook:김한성
+                            <br>
+                        </dd>
+                        <div id = f_info>
+                            
+                                <address>      
+                                미필<br>
+                                창원시 마산합포구 
+                                git_link :  <br>
+                                
+                                </address>
+                            
+                        </div>
+                    </dl>
+                    <article>
+                        <!-- section 태그 안에 맥락이 같은 요소의 여러 article 태그를 넣어 주제별 그룹화 가능-->
+                                            </article>
+                </div>
+                </div>
+                
+            </footer>
+        </div>
+    </body>
+</html>
