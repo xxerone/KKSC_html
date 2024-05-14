@@ -1,5 +1,10 @@
-/*
+head {
+
+}
+
+
 body {
+    /*
   margin: 0;
   overflow: hidden;
   background-color: #3a3a3a;
@@ -8,8 +13,22 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  */
 }
-*/
+
+
+
+#wrap 
+{
+    width: 100%;  /*요소의 너비 설정 https://www.daleseo.com/css-width/*/
+    max-width: 1920px; /*요소의 최대 너비 설정 / 1920보다 작아지지 않음 */
+    min-width: 1200px; /*요소의 최소 너비 설정 / 1200보다 작아지지 않음 */
+    margin: 0 auto;
+}
+
+.header {
+
+}
 
 .splash-text {
     text-align: center;
@@ -21,7 +40,7 @@ body {
     z-index: 1;
     color:#0f0f0f
   }
-  
+
   .smoke {
     position: absolute;
     width: 30px;
@@ -43,14 +62,6 @@ body {
       opacity: 0;
     }
   }
-
-#wrap 
-{
-    width: 100%; 
-    max-width: 1920px; 
-    min-width: 1200px; 
-    margin: 0 auto;
-}
 
 .header 
 {
@@ -196,8 +207,9 @@ body {
 
 .sec_about .text_area dl .title 
 {
-    position: -webkit-sticky;  
+    /*position: -webkit-sticky;  
     position: sticky; 
+    */
     top:200px; 
     width:160px;  
     height:30px;
@@ -549,6 +561,11 @@ body {
 {
     border:2px solid #6398bd; 
     color:#6398bd;
+}
+
+.footer .btns_area .btn:hover i 
+{
+    color:#6398bd !important;
 }
 
 .footer .btns_area .btn:hover i 
