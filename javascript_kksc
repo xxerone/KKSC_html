@@ -9,6 +9,14 @@ let day = today.getDay();  // 요일
 document.write(year + '/' + month + '/' + date)
 document.write('<br>')
 document.write(day);
+
+function greet3() {
+    var a = prompt("a 입력");
+    var b = prompt("b 입력");
+    
+    alert("a = " + a);
+    alert("b = " + b);
+}
 */
 
 // JavaScript 함수 정의
@@ -48,10 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })
 
-function greet3() {
-    var a = prompt("a 입력");
-    var b = prompt("b 입력");
-    
-    alert("a = " + a);
-    alert("b = " + b);
+function changeURL() {
+  window.location.href = "새로운주소.html";
 }
