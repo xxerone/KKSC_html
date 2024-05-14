@@ -1,0 +1,314 @@
+<!DOCTYPE html> 
+
+<html lang="ko"> 
+
+        <head>
+                <meta charset="utf-8"> 
+                <title>
+                        Club KKSC Website 
+                </title> 
+
+                <link rel="stylesheet" type="text/css" href="kksc.css"> 
+        </head>
+    
+        <body> 
+                <div id="wrap"> 
+                        <header id ="header" class = "header"> 
+                                <form>
+                                        <input type="datetime-local" id='currentDatetime'/>
+                                </form>
+                                      
+                                <script 
+                                src = "kksc.js">
+                                </script>
+
+                                <!-- <script>
+                                        changeURL()
+                                </script> -->
+                                <!-- 구현 : URL 바꾸기 (앞에 IP 없애고 싶다.)-->
+
+                                <script>
+                                    // 특정 함수만 실행
+                                    greet(); // 예시로 greet를 실행합니다.
+                                </script>
+                                <!--구현 1 : 날짜 띄우기-->
+
+                                <div class = "inner"> 
+                                        <h1 class = "logo">
+                        
+                                                <a href ="#" target="_blank">KKSC 
+                                                </a> 
+                                        </h1>
+                    
+                                        <nav id = "gnb" class = "gnb"> 
+                                                <ul class="gnb_list"> 
+                                                        <li> 
+                                                                <a href="kksc.html">
+                                                                        HOME
+                                                                </a> 
+
+                                                                <!--<div id="my-div" onclick="divClicked()">Home
+                                                                
+                                                                </div>
+                                                        -->
+                                                        
+                                                                <button 
+                                                                        onclick="doAction()">
+                                                                </button>
+
+                                                                <script>
+                                                                        function doAction() {
+                                                                                alert("Hello World");
+                                                                        }  
+                                                                </script>
+                            
+                                                        <li>
+                                
+                                                                <a href="about.html">ABOUT</a>
+                            
+                                                        </li>
+                        
+                                                </ul>
+                    
+                                        </nav>
+                
+                                </div>
+            
+                        </header>
+
+
+
+            
+                        <main id = "container"> 
+                 
+                                <section id="home" class="section sec_visual"> 
+
+                                        <div class="inner">
+                        
+                                                <div class="text_area">
+                                                        <div class = "splash-container">
+                                                                <h2 class = "splash-text">
+                                                                        Welcome KKSC Website!
+                                                                </h2>
+                                                        </div>
+                                                        
+                            
+                                                        <p>We are Programming Club</p>  <!--이거 왜 안뜨냐?-->
+                            
+                                                        <p> </p><!--새롭게 구현해보기!-->
+                            
+                        
+                                                </div>
+                    
+                                        </div>
+                
+                                </section>
+                
+                                <section id="about" class="section sec_about">
+                    
+                    
+                                        <div class="inner" >
+                        
+                        
+                                                <div class="text_area">
+                            
+                                                        <dl>
+                                
+                                                                <dt class="title"> 
+                                    
+                                                                        <span>What is KKSC?</span> 
+                                
+                                                                </dt>
+                                
+                                                                <dd class="desc" > 
+                                    
+                                                                        <p>
+                                                                                웹페이지를 통해 네이티브 앱부터 초고난이도 앱까지 실제로 제작해보는 동아리
+                                                                        </p>
+                                    
+                                                                        <p>
+                                                                                Group을 만들어 분야에 대해 깊게 공부하고 후에 다양한 프로젝트를 통해 협업. 
+                                                                        </p>
+                                                                        
+                                                                        <p>
+                                                                                프로젝트 결과물을 통해 후에 기업, 대학원, 공모전 등에 지원하거나 참여할 때 자신의 기술을 보여줌.
+                                                                        </p>
+
+                                                                        <br>
+                                    
+                                                                        Groups
+                                    
+                                                                        <p>FrontEnd 1</p>
+                                    
+                                                                        <p>BackEnd 1</p>
+
+                                                                        <p>BackEnd 2</p>
+
+                                                                        <p>BackEnd 3</p>
+                                    
+                                                                        <br>
+                                
+                                                                </dd>
+                                
+                            
+                                                        </dl>
+
+                            
+                                                        <dl>
+                                
+                                                                <dt class="title">
+                                    
+                                                                        <span>Technology Area</span>
+                                                                </dt>
+                                
+                                                                <dd class="desc">
+                                    
+                                                                        Java
+
+                                                                        <p>
+                                                                                JavaScript
+                                                                        </p>
+                                    
+                                                                        <p> Html / Css</p>
+                                
+                                    
+                                                                        <br>
+                                    
+                                                                        現 KKSC (2024 ~ )
+                                    
+                                                                        <p><abbr id="kksc" title="Korea King Social Coding">KKSC</abbr>
+                                        
+                                                                                : 가천대 코딩 동아리이다.</p>
+                                
+                                                                </dd>
+                            
+                                                        </dl>
+
+                            
+                                                        <dl>
+                                
+                                                                <dt class="title">
+                                    
+                                                                        <span>현재</span>
+                                                                </dt>
+                                
+                                                                <dd class="desc">
+                                    
+                                                                        <p> 가천대학교 컴퓨터공학과, 바이오나노학과, 소프트웨어학과 등이 협업 중 </p>
+                                    
+                                                                        <p> 미래 Pay1oad와 협업 예정 </p>
+                                
+                                    
+                                                                        <br>
+                                    
+                                                                        現 KKSC 팀원 김한성
+                                    
+                                                                        <p><abbr id="kksc" title="Korea King Social Coding">KKSC</abbr>
+                                        
+                                                                                : 가천대 코딩 동아리이다.</p>
+                                
+                                                                </dd>
+                            
+                                                        </dl>
+                            
+                        
+                                                </div>
+
+                                                <div class = "img_past">
+                            
+                                                        <span class="Sub text">
+                                
+                                                                PROGRAMMER <!-- 오류?-->
+                            
+                                                        </span>
+                            
+                                                        <img src="" alt="">
+                    
+                                                </div>
+                    
+                                                <div class = "img_past2">
+                        
+                                                        <span class="Sub text">
+                            
+                                                                PROGRAMMER <!-- 오류?-->
+                        
+                                                        </span>
+                        
+                                                        <img src="" alt="">
+                
+                                                </div>
+                    
+                                        </div>
+                    
+                                        <article>
+
+                                                <!-- section 태그 안에 맥락이 같은 요소의 여러 article 태그를 넣어 주제별 그룹화 가능-->
+                    
+                                        </article>
+                
+                                </section>
+
+                
+                                <!--121 - 280-->
+            
+                        </main>
+            
+                        <aside>
+                
+            
+                        </aside>
+            <footer id="contact" class="footer">
+                <div class="inner">
+                    <div class = "img_area">
+                        
+                        <span class="sub text">
+                            PROGRAMMER <!-- 오류?-->
+                        </span>
+                        <img src="" alt="">
+                    </div>
+                <div class="text_area">
+                    <dl>
+                        <dt>
+                            <i class="fa-solid fa-phone" style="color: aqua;">
+                            </i>
+                            PHONE
+                        </dt>
+                        <dd>
+                            <a href="tel:00000000000">
+                                010-8228-6097
+                            </a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <i class="fa-brands fa-github" style="color: aquamarine;">
+                            </i>
+                            SNS
+                        </dt>
+                        <dd>
+                            #Insta : han_seoul_27
+                            <br>
+                            #Facebook : 김한성
+                        </dd>
+                        <div id = f_info>
+                            
+                               <!-- <address>      
+                                현재 21명 <br>
+                                가천대학교 
+                                git_link :  <br>
+                                
+                                </address>
+                                -->
+                            
+                        </div>
+                    </dl>
+                    <article>
+                        <!-- section 태그 안에 맥락이 같은 요소의 여러 article 태그를 넣어 주제별 그룹화 가능-->
+                                            </article>
+                </div>
+                </div>
+                
+            </footer>
+        </div>
+    </body>
+</html>
