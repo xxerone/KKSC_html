@@ -1,0 +1,278 @@
+.header {
+  position:fixed;
+}
+
+.body {
+  
+}
+
+.square01 {
+  /*position*/
+    width: 1100px;
+    height: 80px;
+    background-color: #ffd67a;
+  /*left*/
+  /*top*/
+}
+.square01 .logo {
+    position:relative;
+    width: 90px;
+    height: 50px;
+    background-color: white;
+    left: 20px;
+    top: 15px;
+}
+
+.square01 .logo a {
+    position:relative;
+    /*width*/
+    /*height*/
+    /*background-color*/
+    left: 17px;
+    top: 10px;
+    font-size: 20px;
+}
+
+.square01 .inner {
+    position:relative;
+    width: 900px;
+    height: 50px;
+    background-color: white;
+    left: 15%;
+    top: -45%;
+}
+
+.area {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.area:before {
+  display: inline-block;
+  width: 1px;
+  content: '';
+}
+
+.area:after {
+  display: inline-block;
+  width: 1px;
+  content: '';
+}
+
+.item {
+  display: inline-block;
+  border: 1px solid #0d48a1;
+  background-color: #1565c0;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+}
+
+/*
+.square01 .inner .inner_home {
+    position:relative;
+    background-color: black;
+    width: 70px;
+    height: 30px;
+    left: 15%;
+    top: 20%;
+}
+*/
+
+.inner {
+    position:relative;
+    width: 1100px;
+    height: 1000px;
+    background-color: black;
+    /*left*/
+    /*top*/
+}
+
+.inner .rectangle_area {
+    position:relative;
+    width: 300px;
+    height: 150px;
+    background-color: white;
+    left: 10%;
+    top: 15%;
+    border-radius:15px;
+}
+
+.inner .rectangle_area dl .Engineering {
+    position:absolute; 
+    /*absolute vs relative 알아보기!! */
+    top:50%;
+    left:10%;
+  font-size:15px;
+    width:160px;  
+    height:30px; 
+}
+
+.inner .rectangle_area dl .wood {
+    position:absolute; 
+    /*absolute vs relative 알아보기!! */
+    top:65%;
+    left:10%;
+    font-size: 20px;
+  
+    width:160px;  
+    height:30px; 
+}
+
+.inner .rectangle_area2 {
+    position:absolute;
+    width: 300px;
+    height: 150px;
+    background-color: blue;
+    left: 55%;
+    top: 15%;
+    border-radius:15px;
+}
+
+.inner .rectangle_area2 dl .Architecture {
+    position:absolute; 
+    /*absolute vs relative 알아보기!! */
+    top:50%;
+    left:10%;
+  font-size:15px;
+    width:160px;  
+    height:30px; 
+}
+
+.inner .rectangle_area2 dl .arch {
+    position:absolute; 
+    /*absolute vs relative 알아보기!! */
+    top:65%;
+    left:10%;
+    font-size: 20px;
+  
+    width:160px;  
+    height:30px; 
+}
+
+.sec_search .search_rectangle {
+  /*이 부분 물어보는거도 괜찮을듯*/
+  position:absolute;
+    width: 800px;
+    height: 50px;
+    background-color: red;
+    left: 10%;
+    top: 35%;
+    border-radius:15px;
+}
+
+.sec_diverse .About_Us {
+
+}
+
+/*안에 사진 넣을 때 display: inline-block; 사용해보기!*/
+.footer 
+{
+    background-color:#0f0f0f;
+}
+
+.footer .inner 
+{
+    display:flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    width:1000px; 
+    margin: 0 auto; 
+    padding: 80px 0; 
+    font-size:22px; 
+    line-height:40px; 
+    color:#fff;
+}
+
+/*
+.footer .img_area 
+{
+    position:relative; 
+    width:360px; 
+    height:500px; 
+    margin-left:65px; 
+    border-radius:20px; 
+    background-color:#fff;
+}
+
+.footer .img_area .sub_text 
+{
+    position:absolute; 
+    left:-132px; 
+    top: 170px; 
+    font-size:16px; 
+    color:#fff; 
+    transform: rotate(90deg); 
+}
+
+.footer .img_area .sub_text::after,
+
+.footer .img_area .sub_text::before 
+{
+    content: ''; 
+    position:absolute; 
+    left:-80px; 
+    top: 50%; 
+    height:1px; 
+    width:70px; 
+    background-color:#fff; 
+    transform: translateY(-50%);
+}
+
+.footer .img_area .sub_text::after 
+{
+    content: ''; 
+    left:238px; 
+    width:180px;
+}
+*/
+
+.footer .text_area 
+{
+    color:#fff;
+}
+
+.footer .text_area dl 
+{
+    display:flex; 
+    align-items: center; 
+    margin-bottom:10px; 
+    color:#fff;
+}
+
+.footer .text_area dl dt 
+{
+    width:140px; 
+    font-size:18px; 
+    font-weight:bold;
+}
+
+.footer .text_area dl dt i 
+{
+    width:16px; 
+    margin-right:15px;
+}
+
+.footer .text_area dl dd 
+{
+    font-size:16px;
+}
+
+.footer .text_area dl dd a 
+{
+    font-size:16px; 
+    color:#fff
+}
+
+.footer .text_area dl dd a:hover 
+{
+    color: #6398bd;
+}
