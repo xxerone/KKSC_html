@@ -1,0 +1,211 @@
+<!-- 수정안 : 폰트 구글 다운로드 받은거 쓰기 -->
+
+<!DOCTYPE html> 
+<html lang="ko"> 
+<head>
+  <!-- prev, next 부분 -->
+  <meta name="description" content="Slideshow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  
+  <!-- 시작 -->
+  <meta charset="utf-8"> 
+    <title>
+      Club KKSC Website 
+    </title> 
+    <link rel="stylesheet" href="final.css">
+    <script src="final.js"></script>
+<!--폰트1 : 제목 파트-->    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!--폰트2 : -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<!--폰트3 : -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&display=swap" rel="stylesheet">
+<!--폰트4 : -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--폰트5 : -->
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Noto+Sans+KR:wght@100..900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+  
+<body>
+  <main id = "container">
+    <div class = "inner">
+      <div class = part_introduction_text>
+        <dl>
+          <dt class = "part_introduction">
+            
+        <div class="container2">
+        <span class="text">PART INTRODUCTION</span>
+        </div>
+        
+            <br>
+        
+            <i>
+              <!--- Introduction of our part-->
+            </i>
+          </dt>
+        </dl>
+      </div>
+  
+      <div class = frontend_image>
+        <!--<img src = home.png>-->
+        <div class = "img_rectangle_area">
+          <dl>
+            <dt class = "Engineering">
+              <img src = destiny.png>
+            </dt>
+            <dt class = "wood">
+              <b>Frontend</b>
+            </dt>
+          </dl>
+        </div>
+      </div>
+
+      <div class = "team_member">
+        <dl>
+          <dt class = "team">
+            <div class="container2">
+        <span class="text">TEAM MEMBER</span>
+    </div>
+          </dt>
+        </dl>
+      </div>
+      <div class = "rect">
+        
+      <div class = "rectangle_area">
+        <dl>
+          <dt class = "Engineering1">
+               Head of Front
+          </dt>
+          <dt class = "wood1">
+            <b>김한성</b>
+          </dt>
+          
+          <!--
+-->
+        </dl>
+      </div>
+      <div class = "rectangle_area2">
+        <dl>
+          <dt class = "Engineering">
+               Member of Front
+          </dt>
+          <dt class = "wood">
+            <b>심주혜</b>
+          </dt>
+        </dl>
+      </div>
+      <div class = "rectangle_area3">
+        <dl>
+          <dt class = "Engineering">
+               Member of Front
+          </dt>
+          <dt class = "wood">
+            <b>손수민</b>
+          </dt>
+        </dl>
+      </div>
+      <div class = "rectangle_area4">
+        <dl>
+          <dt class = "Engineering">
+               Member of Front
+          </dt>
+          <dt class = "wood">
+            <b>경제진</b>
+          </dt>
+        </dl>
+      </div>
+      </div>
+
+      <div class="slideshow">
+  <div class="navigation">
+    <div id="prev" class="prev">PREV</div>
+    <div id="next" class="next">NEXT</div>
+  </div>
+  <img id="image" src="">
+</div>
+            
+    <div class = "main_wrap">
+            <h1>Our developing Plans</h1><!--주석을 위한 h1이니 지워도됩니다-->
+<div class="main">
+  <input type="radio" id="tab-1" name="show" checked/>
+  <input type="radio" id="tab-2" name="show" />
+  <input type="radio" id="tab-3" name="show" />
+  <input type="radio" id="tab-4" name="show" />
+  <div class="tab">
+    <label for="tab-1">Frontend</label>
+    <label for="tab-2">Backend1</label>
+    <label for="tab-3">Backend2</label>
+    <label for="tab-4">Backend3</label>
+  </div>
+  <div class="content">
+    <div class="content-dis">
+      <게시판> &nbsp <회원 관리> &nbsp <공지사항> &nbsp <캘린더>
+    </div>
+    <div class="content-dis">
+      회원관리 시스템 구현<br>
+
+-회원 가입 및 로그인 기능 개발<br>
+-데이터베이스 설계 및 회원 테이블 생성<br>
+-회원 가입 폼 및 유효성 검사 구현<br>
+-로그인 폼 및 인증 시스템 구현<br>
+-비밀번호 암호화 및 복구 기능 개발<br>
+-회원 프로필 관리<br>
+-프로필 보기 및 수정 기능 구현<br>
+-프로필 사진 업로드 기능 개발<br>
+-권한 관리<br>
+-관리자, 일반 회원, 준회원 등 권한별 기능 제한 설정<br>
+      
+    </div>
+    <div class="content-dis">
+      
+게시판 시스템 구현<br>
+-게시판 구조 설계 및 구현
+      <br>
+-데이터베이스 설계 및 게시글 테이블 생성<br>
+-게시글 작성, 수정, 삭제 기능 구현<br>
+-게시글에 파일(아이디어 문서, 코드 등) 업로드 기능 구현<br>
+-댓글 및 답글 기능<br>
+-댓글 작성, 수정, 삭제 기능 구현<br>
+-답글 작성 기능 추가<br>
+-공지사항 게시판 구현<br>
+-공지사항 작성, 수정, 삭제 기능 구현<br>
+
+    </div>
+    <div class="content-dis">
+      
+푸시알림 및 캘린더 기능 구현<br>
+
+-데이터베이스 설계 및 공지사항 테이블 생성<br>
+-푸시 알림 기능<br>
+-새로운 공지사항 작성 시 이메일 또는 웹 푸시 알림 시스템 구현<br>
+-캘린더 기능 구현<br>
+-데이터베이스 설계 및 일정 테이블 생성<br>
+-캘린더 UI 구현 (일정 추가, 수정, 삭제 기능 포함) <br>
+-이벤트 등록 및 참가 신청 <br>
+-이벤트 등록 폼 및 유효성 검사 구현 <br>
+-참가 신청 기능 및 참가자 명단 관리 기능 구현 <br>
+    </div>
+    </div>
+      
+      </div>
+    </div>
+      
+      <div class = active_plan_day>
+        <!--활동 일정-->
+      </div>
+    </div>
+  </main>
+</body>
