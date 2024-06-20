@@ -1,0 +1,120 @@
+//prev and next
+getSlides(null, 1, function(response) {
+    console.log(response);
+    $("#image").attr("src", response.slides[0].img_url);
+  });
+
+  var Slideshow = (function() {
+  
+    return {
+      nextSlide: function() {
+        // TODO
+        const text = '출력할 메시지';
+        alert(text);
+      },
+      prevSlide: function() {
+        // TODO
+        const text = '출력할 메시지';
+        alert(text);
+      },
+    };
+    
+  })();
+
+  function getSlides(id, count, callback) {
+    var endpoint = 'http://www.lonny.com/api/v1/cached/photos',
+        params = [];
+    if (id) params.push('slide_id=' + id);
+    params.push('filters[]=Kitchen');
+    params.push('count=' + count);
+    params.push('offset=' + (id ? 0 : -1));
+    $.ajax({
+      url: endpoint + '?' + params.join('&')
+    }).done(callback);
+  }
+  
+  /**
+   * Bind clicks on the page buttons
+   */
+  $('#next').click(function() {
+    Slideshow.nextSlide(); // navigate to the next slide
+  });
+  $('#prev').click(function() {
+    Slideshow.prevSlide(); // navigate to the previous slide
+  });
+  
+  /**
+   * Bind the keyboard arrows
+   */
+  $(document).keydown(function(e) {
+    switch(e.which) {
+      case 37: // left
+        Slideshow.prevSlide(); // navigate to the previous slide
+        break;
+      case 39: // right
+        Slideshow.nextSlide(); // navigate to the next slide
+        break;
+      default: return;
+    }
+    // prevent the default action (scroll / move caret)
+    e.preventDefault();
+  });
+  
+  
+  
+  function getSlides(id, count, callback) {
+    var endpoint = 'http://www.lonny.com/api/v1/cached/photos',
+        params = [];
+    if (id) params.push('slide_id=' + id);
+    params.push('filters[]=Kitchen');
+    params.push('count=' + count);
+    params.push('offset=' + (id ? 0 : -1));
+    $.ajax({
+      url: endpoint + '?' + params.join('&')
+    }).done(callback);
+  }
+  
+  /**
+   * Bind clicks on the page buttons
+   */
+  $('#next').click(function() {
+    Slideshow.nextSlide(); // navigate to the next slide
+  });
+  $('#prev').click(function() {
+    Slideshow.prevSlide(); // navigate to the previous slide
+  });
+  
+  /**
+   * Bind the keyboard arrows
+   */
+  $(document).keydown(function(e) {
+    switch(e.which) {
+      case 37: // left
+        Slideshow.prevSlide(); // navigate to the previous slide
+        break;
+      case 39: // right
+        Slideshow.nextSlide(); // navigate to the next slide
+        break;
+      default: return;
+    }
+    // prevent the default action (scroll / move caret)
+    e.preventDefault();
+  });
+  
+  
+
+
+  //animation
+  document.addEventListener('scroll', function() {
+              var container = document.querySelector('.container2');
+              var containerPosition = container.getBoundingClientRect().top;
+              var screenPosition = window.innerHeight;
+  
+              if (containerPosition < screenPosition) {
+                  var textElements = document.querySelectorAll('.text');
+                  textElements.forEach((el, index) => {
+                      el.style.animationDelay = (index * 0.1) + 's';
+                      el.style.opacity = 1; // 애니메이션 시작 시 투명도 설정
+                  });
+              }
+          });
