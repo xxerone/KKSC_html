@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang = "ko">
+    <head>
+        <meta charset="utf-8" />
+        <title> <!--페이지 제목-->
+            (주)선진엔지니어링종합건축사무소
+        </title>
+    </head>
+
+    <body>
+      <header>
+        <div class = "square01">
+          <div class = "logo">
+            <a>
+              Sunjin
+            </a>
+          </div>
+          
+          <div class = "inner">
+            <!--             
+            <div class = "inner_home">
+            
+            </div>
+            -->
+            <ul class="area">
+              <li class="item">About</li>
+              <li class="item">Our Works</li>
+              <li class="item">PR Center</li>
+              <li class="item">Recruitment</li>
+              <li class="item">Contact</li>
+            </ul>
+          </div>    
+        </div>
+      </header>
+      
+      
+      <main id = "container">
+        <div class = "inner">
+          <div class = "rectangle_area">
+            <dl>
+             <!--제목과 설명이 한쌍 -->
+              <dt class = "Engineering">
+                Engineering
+              </dt>
+              <dt class = "wood">
+                <b>토목</b>
+              </dt>
+            </dl>
+          </div>
+
+          <div class = "rectangle_area2">
+            <dl>
+             <!--제목과 설명이 한쌍 -->
+              <dt class = "Architecture">
+                Architecture
+              </dt>
+              <dt class = "arch">
+                <b>건축</b>
+                <!--<b> : 볼드형 변경-->
+              </dt>
+            </dl>
+         </div>
+          
+          <section class = "section sec_search">
+          <div class = "search_rectangle">
+            ddddddddddddddddddddd
+          </div>
+<!--div와 같다 + 순서 상관없다 한듯-->
+<!--쓴사유 : 다양한 사용이 좋을거 같아서-->
+        </section>
+        </div>
+        
+        
+        
+        <section class = "section sec_diverse">
+          <div class = "About_Us">
+            <dl>
+              <dt class = about_us>
+                
+              </dt>
+              
+              <dt class = company_introduction>
+                
+              </dt>
+              <dt>
+              </dt>
+            </dl>
+          </div>
+          
+          <div>
+        </section>
+        
+      </main>
+        
+      <footer id="contact" class="footer">
+        <div class="inner">
+          <div class = "img_area">      
+            <span class="sub text">
+              PROGRAMMER <!-- 오류?-->
+            </span>
+            <img src="" alt="">
+          </div>
+          <div class="text_area">
+            <dl>
+              <!--
+              <dt>
+                <i class="fa-solid fa-phone" style="color: aqua;">
+                </i>
+                PHONE
+              </dt>
+              -->
+              <dd>
+                <a href="tel:00000000000">
+                  선진엔지니어링종합건축사무소
+                </a>
+              </dd>
+            </dl>
+            
+            <dl>
+                        <dt>
+                            <i class="fa-brands fa-github" style="color: aquamarine;">
+                            </i>
+                            SNS
+                        </dt>
+                        <dd>
+                            #Insta : han_seoul_27&nbsp&nbsp#Facebook:김한성
+                            <br>
+                        </dd>
+                        <div id = f_info>
+                            
+                                <address>      
+                                미필<br>
+                                창원시 마산합포구 
+                                git_link :  <br>
+                                </address>
+                            
+                        </div>
+                    </dl>
+          </div>
+        </div>        
+      </footer>
+    </body>
+</html>
