@@ -1,0 +1,33 @@
+var inp = document.querySelector('#userName');
+var but = document.querySelector('#userButton');
+var namelist = document.querySelector('#nameList');
+
+function del(){
+  var cla = document.querySelectorAll('.num'); 
+  for(var i = 0; i < cla.length; i++){
+    cla[i].addEventListener('click', function(){
+        console.log(this);
+        if(this.parentNode){
+          this.parentNode.remove();
+        }
+    })
+  }
+};
+
+but.addEventListener('click', function() 
+{
+    if(inp.value != null) 
+    {
+    var p = document.createElement('p');
+    namelist.appendChild(p);
+    p.textContent = inp.value;
+    var span = document.createElement('span');
+    p.appendChild(span);
+    span.textContent = ' X';
+    span.setAttribute('class', 'num');
+    inp.value ='';
+    inp.focus();
+    namelist.insertBefore(p, namelist.childNodes[0]);
+    }
+  del();
+});
