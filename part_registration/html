@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+  
+<body>
+<div id="wrapper">
+<div id="wrapper2">
+  <p>
+    <a class="button" href="#popup">
+      Click Me
+    </a>    
+  </p>
+</div>
+
+<div id="popup" class="overlay">
+  <a class="cancel" href="#">
+    
+  </a>
+	<div class="popup">
+		<h2>
+      Event Registration
+    </h2>
+		<a class="close" href="#">
+      &times;
+    </a>
+		<div class="content">
+      <span>
+        Event Name : 
+        <br>
+      </span>
+	  <input type="text" id="userName" placeholder="Enter name">
+    <button id="userButton">
+      Add
+    </button>
+    <div id="nameList">
+      
+    </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
