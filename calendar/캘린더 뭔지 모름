@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="mySuperApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+  
+  <!-- prev, next icon -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <!-- title font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&family=Bebas+Neue&display=swap" rel="stylesheet">
+  
+  <!-- calendar font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&family=Bebas+Neue&family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <!-- todolist_font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&family=Bebas+Neue&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic:wght@400;700;800&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+  
+  <!-- todolist_font_ko -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Event_Registration.css */
+
+#wrapper2 {
+	text-align: center;
+}
+
+.num 
+{
+  cursor: pointer;
+  color: red;
+  margin-left: 10px;
+}
+
+.Button 
+{
+  /*
+  
+  */
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	padding: 5px 10px;
+	border: 1px solid #aaa;
+	background-color: pink;
+	color: #666;
+  
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.overlay 
+{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+	transition: opacity 200ms;
+  visibility: hidden;
+	opacity: 0;
+
+  /* 아무데나 눌러도 나갈 수 있게 */
+  .cancel 
+  {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+  }
+  
+  &:target 
+  {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.popup {
+	margin: 75px auto;
+	padding: 20px;
+	background: #fff;
+	border: 1px solid #666;
+	width: 300px;
+  top:100px;
+	box-shadow: 0 0 50px rgba(0,0,0,0.5);
+	position: relative;
+
+  h2 {
+    margin-top: 0;
+    color: #666;
+    font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+    font-size : 28px; 
+    /* 추가 */
+  }
+  
+  .close {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 20px;
+    right: 20px;
+    opacity: 0.8;
+    transition: all 200ms;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #666;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+
+
+/* font.css */
+
+.nanum-gothic-regular {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nanum-gothic-bold {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.nanum-gothic-extrabold {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.archivo-black-regular {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter-tight {
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+
+
+/* reset.css */
+
+body 
+{
+  max-width : 1920px;
+  max-height : 960px;
+  margin:0;
+	padding:0;
+	font-family: 'Roboto', sans-serif;
+  background-color:black;
+  
+}
+
+h1, h2, h3, h4, h5, h6, div, p, dl, dt, dd, ul, ol, li, form, fieldset, blockquote, address, table, thead, tbody, tfoot, tr, td, caption 
+{
+	margin:0;
+	padding:0;
+  list-style:none;
+}
+
+
+
+.input-btn 
+{
+  width: 70px;
+  height: 35px;
+  border: none;
+  border-radius: 10%;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin-right: 30px;
+  background: rgb(255, 255, 255); 
+}
+
+header 
+{
+  display: flex;
+  height: 5%; 
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+header > h1 
+{
+  display: inline-block;
+  height: 100%;
+  transform:translate(10px);
+  flex-grow: 1;
+}
+
+header > h1 > span 
+{
+  font-family: "Archivo Black", sans-serif;
+  font-size : 32px; /* 추가 */
+  font-weight: 400; 
+  color: #a7a7a7; 
+  vertical-align: center;
+}
+
+.calendar_title 
+{
+  margin: 0 auto; 
+  flex-grow: 0;
+}
+
+.calendar_title .prev , .next
+{
+  width: 30px;
+  height: 100%;
+  border: none;
+  font-size: 20px;
+  background-color:black;
+  color: #5c5c5c;
+  outline: none;
+  cursor: pointer;
+}
+
+.calendar_title .current-year-month 
+{
+  display: inline-block;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 24px;
+  margin: 0 20px;
+  color: rgb(255, 255, 255);
+}
+
+.content-left 
+{
+  width: 20%;
+  float: right;
+  background-color:#black; /*F5F5F5 : 통합양식 버전인듯*/ 
+  /* 추가 */
+}
+
+.left-main 
+{
+  margin-top: 10%;
+}
+
+.left-main .main-wrap 
+{
+  text-align: center;
+  font-weight: 700;
+}
+
+.left-main .todo-wrap 
+{
+  padding: 20% 0 10% 10%;
+}
+
+.left-main .todo-wrap .todo-title 
+{
+  font-family: "Archivo Black", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 10%;
+  color: #5c5c5c;
+}
+
+.left-main .todo-wrap .input-form .input-box 
+{
+  width: 90%;
+  height: 40px; /*50 -> 40*/
+  border: 0;
+  border-bottom: 2px solid rgb(255, 255, 255);
+  font-size: 20px;
+  margin-bottom: 30px;
+  background-color:#000;
+  color: white;
+  outline-style: none;
+}
+
+.content-right 
+{
+  float: left; 
+  width: 80%;
+}
+
+.content-right .day-of-week 
+{
+  background: rgb(255, 255, 255);
+  width: 100%;
+  height: 100%;
+  transform:translate(-20px);
+      font-family: "Inter Tight", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.content-right .day-of-week .dayHeader 
+{
+    transform:translate(-10px);
+    padding: 10px;
+    text-align: center;
+    flex: 1;
+    margin: 10 5px;
+}
+
+.content-right .day-of-week .dayHeader:first-child
+{
+    margin-left: 0;
+}
+
+.content-right .day-of-week .dayHeader:last-child 
+{
+    margin-right: 0;
+}
+
+.content-right .day-of-week .dayHeader.sun 
+{
+  color: #f02f2f;
+}
+
+.content-right .day-of-week .dayHeader.sat 
+{
+  color: #2208e7;
+}
+
+#weekly > div 
+{
+  font-family: "Inter Tight", sans-serif;
+  box-sizing: border-box;
+  text-align: center;
+  width: calc(100% / 7);
+  height: 130px;
+  display: inline-block;
+  border-bottom: 1px solid #e4e4e4;
+  vertical-align: top;
+  padding: 1%;
+  color: rgb(255, 255, 255);
+  overflow-y: auto;
+}
+
+#weekly > div.active 
+{
+  background: blue;
+}
+
+#weekly > div + div
+{
+  border-left: 1px solid #e4e4e4;
+}
+
+.calendar-body #weekly > div:first-child 
+{
+  border-left: 1px solid #e4e4e4;
+}
+
+.calendar-body #weekly > div:last-child 
+{
+  border-right: 1px solid #e4e4e4;
+}
+
+.todoList 
+{
+  margin-top: 10%;
+  font-size: 20px;
+  cursor:pointer;
+}
+
+.todoList > li 
+{
+  position: relative; 
+  color:white;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.todoList > li > span
+{
+  white-space: nowrap;
+  width: 70%;
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis;
+}
+
+.todoList > li+li {
+  margin-top: 5%;
+}
+
+.todoList > li > .del-data
+{
+  position: absolute;
+  top: 0; right: 5%;
+  width: 20%;
+  height: 25px;
+  background: none;
+  border: none;
+  font-size: 0px;
+}
+
+.todoList > li > .del-data::after, .todoList > li > .del-data::before
+{
+  content: '';
+  position: absolute;
+  top : 0; 
+  left: 50%;
+  display: block;
+  width: 4px;
+  height: 18px;
+  background: rgb(255, 82, 195);
+}
+
+.todoList > li > .del-data::after, .closed::after 
+{
+  transform: rotate(45deg);
+}
+
+.todoList > li > .del-data::before, .closed::before
+{
+  transform: rotate(-45deg);
+}
+
+.showList 
+{
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(255, 38, 179);
+  width: 400px;
+  height: 300px;
+  z-index: 1;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.closed {
+  position: absolute;
+  top: 5%; right: 5%; 
+  width: 40px; 
+  height: 40px;
+  font-size: 0;
+  background: none;
+  border: none;
+}
+
+.closed::after, .closed::before {
+  content: '';
+  position: absolute;
+  top: 14%; right: 44%;
+  width: 3px;
+  height: 25px;
+  background: #fff;
+}
+
+.listText 
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  word-break:break-all;
+  width: 70%;
+  font-size: 20px;
+  color: #fff;
+}
+
+.createDate {
+  position: absolute;
+  bottom: 7%;
+  right: 7%;
+  font-size: 20px;
+  color: #e4e4e4;
+}
+
+.bgblack {
+  display: none;
+  background: #acacac;
+  opacity: 0.6;
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+}
+
+@media (max-width: 1000px) {
+  body {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header > h1 {
+    margin-bottom: 20px;
+  }
+
+  .calendar_title {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .content-left {
+    width: 100%;
+    float: none;
+    margin-bottom: 20px;
+  }
+
+  .content-right {
+    width: 100%;
+    float: none;
+  }
+
+  .day-of-week {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .dayHeader {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  #weekly > div {
+    width: calc(100%/7);
+    /* display: block; */
+    margin-bottom: 5px;
+    color:white;
+  }
+}
+
+
+
+
+
+
+
+
+
+/*
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+body {
+  text-align: center;
+
+  background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+h1,h2,a,p {
+  font-family: helvetica, sans-serif;
+}
+h1 {
+  font-size: 3em;
+  text-align: center;
+  color: #00898E;
+  margin: 0;
+  padding: 30vh 0 1em;
+}
+*/
+h2 {
+  text-align: center;
+  white-space: nowrap;
+  color: #00898E;
+}
+a {
+  text-decoration: none;
+  color: black; /*#fff -> black*/
+}
+p {
+  text-align: left;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #00898E;
+  border-radius: 10px;
+  transition: background .3s;
+}
+.btn:hover {
+  background: #00898E;
+}
+.popup1 {
+  position: fixed;
+  padding: 10px;
+  max-width: 500px;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: rgba(255,255,255,.9);
+  visibility: hidden;
+  opacity: 0;
+  /* "delay" the visibility transition */
+  -webkit-transition: opacity .5s, visibility 0s linear .5s;
+  transition: opacity .5s, visibility 0s linear .5s;
+  z-index: 1;
+}
+.popup1:target {
+  visibility: visible;
+  opacity: 1;
+  /* cancel visibility transition delay */
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+.popup-close {
+  position: absolute;
+  padding: 10px;
+  max-width: 500px;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: rgba(255,255,255,.9);
+}
+.popup1 .close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 5px;
+  color: #000;
+  transition: color .3s;
+  font-size: 2em;
+  line-height: .6em;
+  font-weight: bold;
+}
+.popup1 .close:hover {
+  color: #00E5EE;
+}
+
+.close-popup {
+  background: rgba(0,0,0,.7);
+  cursor: default;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  /* "delay" the visibility transition */
+  -webkit-transition: opacity .5s, visibility 0s linear .5s;
+  transition: opacity .5s, visibility 0s linear .5s;
+}
+.popup1:target + .close-popup{  
+  opacity: 1;
+  visibility: visible;
+  /* cancel visibility transition delay */
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+  </style>
+  
+  </head>
+  
+<body>
+<div id = "wrap_calendar" class = wrap_calendar>
+<header>
+  <h1>
+    <span>KKSC_Calendar</span>
+  </h1>
+  
+  <div class="calendar_title">
+    <button class="prev"
+            style = >
+      <span class="material-symbols-outlined">
+        arrow_back
+      </span>
+    </button>
+    
+    <span class="current-year-month">
+      
+    </span>
+    
+    <button class="next"
+            style = >
+      <span class="material-symbols-outlined">
+        arrow_forward
+      </span>
+    </button>
+  </div>
+</header>
+
+<section class="content-left">
+  <div class="left-main">
+    <div class="main-wrap">
+
+    </div>
+    
+    <div class="todo-wrap">
+      <div class="todo-title">
+        Work of KKSC
+      </div>
+      
+      <form class="input-form">
+        <input type="text" placeholder="" class="input-box" />
+        <button type="submit" class="input-btn">
+          INPUT
+        </button>
+        
+        <div id="wrapper2" class = "wrapper2">
+        <a>
+          <a class="Button" href="#popup">
+          참가신청
+          </a>    
+        </a>
+        </div>
+
+        <div id="popup" class="overlay">
+          <a class="cancel" href="#">
+    
+          </a>
+	      <div class="popup">
+		      <h2>
+            Event Registration
+          </h2>
+		      <a class="close" href="#">
+            &times;
+          </a>
+		      <div class="content">
+            <div class = "event_name">
+            </div>
+            
+            <div class = "today">
+              today : 
+              <br>
+            </div>
+	          <input type="text" id="userName" placeholder="Enter name">
+            <button id="userButton">
+              Add
+            </button>
+            <div id="nameList">
+      
+            </div>
+		      </div>
+	      </div>
+        </div>
+      </form>
+      
+      <ul class="todoList">
+        
+      </ul>
+      
+      <div class="showList">
+        <span class="listText">
+          
+        </span>
+        
+        <span class="createDate">
+          
+        </span>
+        
+        <button class="closed">
+          
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+  
+<section class="content-right">
+    <div class="day-of-week">
+      <div class="dayHeader sun">
+        Sun
+      </div>
+      <div class="dayHeader">
+        Mon
+      </div>
+      <div class="dayHeader">
+        Tue
+      </div>
+      <div class="dayHeader">
+        Wed
+      </div>
+      <div class="dayHeader">
+        Thu
+      </div>
+      <div class="dayHeader">
+        Fri
+      </div>
+      <div class="dayHeader sat">
+        Sat
+      </div>
+    </div>
+    
+    <div class="calendar-body">
+      
+    </div>
+</section>
+</div>
+  
+  <script>
+    var isBool;
+let today = new Date();
+var spanEl2; // 원래 const였음, 여기 선언도 아님
+let currentDate;
+
+const event_name = document.querySelector('.event_name');
+const Today = document.querySelector('.today');
+
+let DATA = {
+  // todolist 목록
+  
+};
+
+Date.prototype.format = function () {
+  var yyyy = this.getFullYear();
+  var month = (this.getMonth() + 1);
+  var dd = this.getDate();
+  var format = [yyyy, month, dd].join('-');
+  return format;
+}
+
+Date.prototype.format2 = function () {
+  var yyyy = this.getFullYear();
+  var month = (this.getMonth() + 1);
+  var format = [yyyy, month].join('-');
+  return format;
+}
+
+
+
+//main.js 확인 완료
+window.onload = function () {
+const calendarBody = document.querySelector('.calendar-body');
+const prevEl = document.querySelector('.prev');
+const nextEl = document.querySelector('.next');
+const inputBox = document.querySelector('.input-box');
+const inputBtn = document.querySelector('.input-btn');
+const inputList = document.querySelector('.todoList');
+const showList = document.querySelector('.showList');
+const listText = document.querySelector('.listText');
+const createDate = document.querySelector('.createDate');
+const bgblack = document.querySelector('.bgblack'); // 없앴다가 살린거
+const closedBtn = document.querySelector('.closed'); // 없앴다가 살린거
+// let currentDate;
+
+buildCalendar();
+function buildCalendar() {
+  let firstDate = new Date(today.getFullYear(), today.getMonth(), 1);
+  const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const leapYear = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const notLeapYear = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const headerYear = document.querySelector('.current-year-month');
+  
+  if (firstDate.getFullYear() % 4 === 0) {
+    pageYear = leapYear;
+  } 
+  
+  else {
+    pageYear = notLeapYear;
+  }
+  
+  headerYear.innerHTML = `${monthList[firstDate.getMonth()]}&nbsp;&nbsp;&nbsp;&nbsp;${today.getFullYear()}`;
+  makeElement(firstDate);
+  // currentDateget();
+  // showMain();
+  currentDate = today.format();
+  resetInsert();
+}
+
+  /*
+  function showMain() {
+  const mainDay = document.querySelector('.main-day');
+  const mainDate = document.querySelector('.main-date');
+  const dayList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  mainDay.innerHTML = dayList[today.getDay()];
+  mainDate.innerHTML = today.getDate();
+}
+*/
+  
+function makeElement(firstDate) {
+  let weekly = 100;
+  let dateSet = 1;
+  for (let i = 0; i < 5; i++) {
+    let weeklyEl = document.createElement('div');
+    weeklyEl.setAttribute('class', weekly);
+    weeklyEl.setAttribute('id', "weekly");
+    for (let j = 0; j < 7; j++) 
+    {
+      if (i === 0 && j < firstDate.getDay() || dateSet > pageYear[firstDate.getMonth()]) 
+      {
+        let dateEl = document.createElement('div');
+        weeklyEl.appendChild(dateEl);
+      } 
+      
+      else 
+      {
+        let dateEl = document.createElement('div');
+        dateEl.textContent = dateSet;
+        dateEl.setAttribute('class', dateSet);
+        dateEl.setAttribute('id', `${today.format2()}-${dateSet}`);
+        weeklyEl.appendChild(dateEl);
+        dateSet++;
+      }
+    }
+    weekly++; calendarBody.appendChild(weeklyEl);
+  }
+// let clickedDate = document.getElementsByClassName(today.getDate());
+  // clickedDate[0].classList.add('active');
+}
+
+function removeCalendar() {
+  let divEls = document.querySelectorAll('.calendar-body > #weekly > div');
+  for (let i = 0; i < divEls.length; i++)   {
+    divEls[i].remove();
+  }
+}
+
+/*
+function currentDateget() {
+  // format()을 이용해서 현재 날짜를 보기좋게 출력해주기 위해 사용.
+  currentDate = today.format();
+}
+*/
+  
+  
+  
+  // 이벤트 네임 추가하기
+function updateCalendar() {
+  
+  alert("수행");
+        let event_name = document.querySelector('.event_name'); 
+  // event_name 요소 선택
+  event_name.innerHTML = ''; 
+  // 기존 내용을 비움
+          
+  if (DATA[currentDate]) 
+  {
+    for (let i = 0; i < DATA[currentDate].length; i++) 
+    {
+      event_name.innerHTML += DATA[currentDate][i].todo + '<br>'; 
+        // 각 일정을 새로운 줄에 추가
+      
+      
+      // 모든 li 요소 선택
+        const listItems = document.querySelectorAll('li');
+
+        // 모든 li 요소의 텍스트 내용을 읽어서 배열에 저장
+        const texts = Array.from(listItems).map(item => item.textContent.trim());
+
+        // 텍스트 내용을 콘솔에 출력
+        console.log(texts);
+
+        // 각 li 요소의 텍스트 내용을 개별적으로 출력
+        texts.forEach(text => {
+            console.log(text);
+        });
+      
+      
+    }
+  } 
+      
+  else 
+  {
+    event_name.innerHTML = "일정 없음";
+  }
+  console.log(event_name.innerHTML);
+}
+  // setInterval(updateCalendar, 5000);
+  
+  
+  
+prevEl.addEventListener('click', function () {
+  today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+  removeCalendar();
+  buildCalendar();
+  resetInsert();
+  redrawLi(); // 세미콜론 붙임
+});
+  
+nextEl.addEventListener('click', function () {
+  today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+  removeCalendar();
+  buildCalendar();
+  resetInsert();
+  redrawLi(); // 세미콜론 붙임
+});
+
+calendarBody.addEventListener('click', function (e) {
+  let target = e.target;
+  let eachDate = document.querySelectorAll('.calendar-body > #weekly > div');
+  // if (e.target.innerHTML === '') return;
+  for (let i = 0; i < eachDate.length; i++) 
+  {
+   eachDate[i].classList.remove('active');
+   isBool = false;
+  }
+  
+  
+  // 모든 li 요소 선택
+        const listItems = document.querySelectorAll('li');
+
+        // 모든 li 요소의 텍스트 내용을 읽어서 배열에 저장
+        const texts = Array.from(listItems).map(item => item.textContent.trim());
+
+        // 텍스트 내용을 콘솔에 출력
+        console.log(texts);
+
+        // 각 li 요소의 텍스트 내용을 개별적으로 출력
+        texts.forEach(text => {
+            console.log(text);
+        });
+  
+  
+  
+  isBool = true;
+  target.classList.add('active');
+  today = new Date(today.getFullYear(), today.getMonth(), target.innerHTML);
+  // showMain();
+  // currentDateget();
+  currentDate = today.format();
+  redrawLi();
+  resetInsert();
+});
+
+inputBtn.addEventListener('click', function (e) {
+  
+  
+  
+  // 관리자일 때 (PM만) : INPUT와 참가 신청 모두 쓸 수 있음.
+  // 회원일 때 : 참가신청만 쓸 수 있음.
+  // 회원이 아닐 때 : 모두 쓸 수 없; 음.
+  var isPM = String(); //오류 없을라나
+  if (isPM === "") {
+    
+  }
+  
+  else if (isPM === "") {
+    
+  }
+  
+  else {
+    
+  }
+  //관리자 (if : 0), 회원 (else if : 1), 준회원 (else : 2) 구분
+  
+  
+  
+  e.preventDefault();
+  let inputValue = inputBox.value;
+  insertTodo(inputValue);
+});
+
+closedBtn.addEventListener('click', function(e){
+  showList.style.display = "none";
+  bgblack.style.display = "none";
+});
+
+function insertTodo(text) {
+  let todoObj = {
+    todo: text,
+  }
+  
+  if (!DATA[currentDate]) 
+  {
+    DATA[currentDate] = [];
+    DATA[currentDate].push(todoObj);
+    
+    
+  } 
+  
+  else 
+  {
+    DATA[currentDate].push(todoObj);
+    alert(DATA[currentDate]);
+    
+  }
+  const liEl = document.createElement('li');
+  const spanEl = document.createElement('span');
+  const delBtn = document.createElement('button');
+  delBtn.innerText = "DEL";
+  delBtn.setAttribute('class', 'del-data');
+  liEl.setAttribute('id', DATA[currentDate].length);
+  
+  
+  
+  /*
+  // 수정
+ // 클래스 설정
+liEl.setAttribute('class', 'del-data' + String(DATA[currentDate].length));
+
+// 설정된 클래스 값 읽기
+var classValue = liEl.getAttribute('class');
+alert(classValue); // 'del-data3' (예를 들어)
+
+// 클래스 이름 앞에 .을 추가하여 클래스 선택자 형식으로 수정
+const listItem = document.querySelector(`.${classValue}`);
+
+// listItem이 null인지 확인하여 오류 방지
+if (listItem) {
+    // 선택된 요소의 텍스트 내용 가져오기
+    const textContent = listItem.textContent;
+
+    // 텍스트 내용 알림
+    alert(textContent); // 'Item 1' 이렇게 표시
+} else {
+    // 요소가 존재하지 않는 경우
+    alert('Element not found');
+}
+  */
+  
+  
+  
+  spanEl.innerHTML = text;
+  liEl.appendChild(spanEl);
+  liEl.appendChild(delBtn);
+  inputList.appendChild(liEl);
+  delBtn.addEventListener('click', delWork);
+  liEl.addEventListener('dblclick', showTodo);
+  todoObj.id = DATA[currentDate].length;
+  // save();
+  localStorage.setItem(currentDate, JSON.stringify(DATA[currentDate]));
+  inputBox.value = '';
+}
+
+function redrawLi() {
+  let liEl = document.querySelectorAll('LI');
+  for (let i = 0; i < liEl.length; i++) {
+    inputList.removeChild(liEl[i]);
+  }
+  for (let todoList in DATA) {
+    if (todoList === currentDate) {
+      for (let i = 0; i < DATA[todoList].length; i++) {
+        const liEl2 = document.createElement('li');
+        // const spanEl2 = document.createElement('span');
+        spanEl2 = document.createElement('span');
+        const delBtn2 = document.createElement('button');
+        delBtn2.innerText = "DEL";
+        delBtn2.setAttribute('class', 'del-data');
+        spanEl2.innerHTML = DATA[todoList][i].todo;
+        liEl2.appendChild(spanEl2);
+        liEl2.appendChild(delBtn2);
+        inputList.appendChild(liEl2);
+        liEl2.setAttribute('id', DATA[todoList][i].id);
+        delBtn2.addEventListener('click', delWork);
+        liEl2.addEventListener('dblclick', showTodo);
+      }
+    }
+  }
+}
+
+function resetInsert() {
+  let storeObj = localStorage.getItem(currentDate);
+  if (storeObj !== null) {
+    let liEl = document.querySelectorAll('LI');
+    
+    for (let i = 0; i < liEl.length; i++)     {
+      inputList.removeChild(liEl[i]);
+    }
+    
+    const parsed = JSON.parse(localStorage.getItem(currentDate));
+    
+    parsed.forEach(function (todo) {
+      if (todo) {
+        let lili = document.createElement('li');
+        let spanspan = document.createElement('span');
+        let deldel = document.createElement('button');
+        deldel.setAttribute('class', 'del-data');
+        deldel.innerText = "DEL";
+        lili.setAttribute('id', todo.id);
+        spanspan.innerHTML = todo.todo;
+        lili.appendChild(spanspan);
+        lili.appendChild(deldel);
+        inputList.appendChild(lili);
+        deldel.addEventListener('click', delWork);
+        lili.addEventListener('dblclick', showTodo);
+      }
+    });
+  }
+}
+resetInsert();
+
+function delWork(e) {
+  e.preventDefault();
+  let delParentLi = e.target.parentNode;
+  inputList.removeChild(delParentLi);
+  const cleanToDos = DATA[currentDate].filter(function (todo)     {
+    return todo.id !== parseInt(delParentLi.id);
+  });
+  DATA[currentDate] = cleanToDos;
+  // save();
+  localStorage.setItem(currentDate, JSON.stringify(DATA[currentDate]));
+}
+
+function showTodo(e){
+  showList.style.display = "block"; 
+  bgblack.style.display = "block"; 
+  listText.textContent = e.target.textContent;
+  createDate.textContent = currentDate;
+}
+  
+}
+
+/*
+function save() {
+  localStorage.setItem(currentDate, JSON.stringify(DATA[currentDate]));
+}
+*/
+
+
+
+
+
+var inp = document.querySelector('#userName');
+var but = document.querySelector('#userButton');
+var namelist = document.querySelector('#nameList');
+
+// .wrapper2 클래스를 가진 요소를 선택
+    const wrapper = document.querySelector('.wrapper2');
+    
+    if (wrapper) {
+      // 클릭 이벤트 리스너 추가
+      wrapper.addEventListener('click', function() {
+        if (Today && isBool) {
+            Today.innerHTML = today;
+
+            // 텍스트 내용 가져오기
+            // let spanTextContent = spanEl2.textContent;
+            
+            //event_name.innerHTML = spanTextContent;
+          } 
+        else {
+            console.error('.today 클래스를 가진 요소를 찾을 수 없습니다.');
+          }
+      });
+    } 
+    else {
+      console.log('.wrapper2 클래스를 가진 요소를 찾을 수 없습니다.');
+    }
+
+function del(){
+  var cla = document.querySelectorAll('.num'); 
+  for(var i = 0; i < cla.length; i++){
+    cla[i].addEventListener('click', function(){
+        console.log(this);
+        if(this.parentNode){
+          this.parentNode.remove();
+        }
+    })
+  }
+};
+
+but.addEventListener('click', function() 
+{
+    if(inp.value != null) 
+    {
+      
+    
+      // 이벤트 네임, 이름, 날짜 표시
+    var p = document.createElement('p');
+    namelist.appendChild(p);
+    p.textContent = inp.value + today; // 수정되서 커밋 쓰기
+    var span = document.createElement('span');
+    p.appendChild(span);
+    span.textContent = ' X';
+    span.setAttribute('class', 'num');
+    inp.value =''; //없앰
+    
+      
+      
+       // 유효성 검사 2
+       // 새로 추가한 내용
+      var i = 0;
+      var paragraphs = document.getElementsByTagName('p');
+      var text = paragraphs[i].textContent;
+      alert(text);
+      i++;
+      if (paragraphs[i].textContent === paragraphs[i-1].textContent) {
+        alert("같애");
+      }
+      
+      
+      
+    inp.focus();
+    namelist.insertBefore(p, namelist.childNodes[0]);
+    }
+  del();
+});
+
+
+/*
+// 보내기 ()
+// 사용 링크 : https://fansor.tistory.com/13
+fetch(url, options)
+  .then((response) => console.log("response:", response))
+  .catch((error) => console.log("error:", error));
+
+//GET 요첟
+fetch("localhost:3000/api/user")
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+//POST 요청
+fetch("localhost:3000/api/user", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    loginId: "id",
+    password: "1234",
+  }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+//PUT 요청
+fetch("localhost:3000/api/user", {
+  method: "PUT",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    loginId: "id",
+    password: "1234",
+  }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+//DELETE 요청
+fetch("localhost:3000/api/user", {
+  method: "DELETE",
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+*/
+
+
+
+/*
+// 가져오기 ()
+// 사용 링크
+// 1. https://jsonplaceholder.typicode.com/
+// 2. https://jsonplaceholder.typicode.com/posts
+// 3. https://myeongsu0257.tistory.com/123
+const getData = async () => {
+    try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts"); 
+        // https://jsonplaceholder123.typicode.com/posts로 쓰면 catch문에서 걸림
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.log(`error : ${error}`);
+    }
+};
+
+getData();
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</html>
