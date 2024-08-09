@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./fonts/font.css">
+  <title>KKSC</title>
+  <style>
+    @charset "utf-8";
+
+/* --------------------------------- reset css --------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-style: normal;
+  vertical-align: baseline;
+}
+/*
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+  <!-- width: 100%;
+  max-width: 1920px;
+  min-width: 1280px;
+  margin: 0 auto; -->
+  font-family: "Pretendard", sans-serif !important;
+  line-height: 1;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:not([href]) {
+  text-decoration: none;
+}
+
+a:not([href]):hover {
+  text-decoration: none;
+}
+*/
+
+ol,
+ul {
+  list-style: none;
+}
+/*
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+caption {
+  display: none;
+}
+
+input,
+textarea {
+  outline: none;
+  font-family: "Noto Sans KR", sans-serif;
+}
+*/
+
+/* --------------------------------- reset css --------------------------------- */
+
+/*
+
+<!-- 웹접근성을 위한 텍스트 숨김 처리 -->
+.blind {
+  display: block;
+  overflow: hidden;
+  position: absolute !important;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+}
+
+<!-- 웹접근성을 위한 텍스트 숨김 처리 -->
+#wrap {position: relative; width: 100%; min-width: 1275px;}
+
+
+
+*/
+
+#wrap {overflow: hidden; background-color: #000; color: #fff;}
+<!-- --------------------------------- visual common css --------------------------------- -->
+.section#visual {height: 940px; background: url(./../img/section01.jpg) center no-repeat; background-size: 1665px 940px;}
+.section#visual .section_inner {padding: 0;}
+.section#visual .visual_content {position: absolute; top: 300px; left: 50%; width: 1280px; transform: translateX(-430px);}
+
+
+/*
+.section#visual .visual_txt h2 {font-size: 120px; font-weight: bold; line-height: 1; letter-spacing: -2.2px;}
+<!-- .section#visual .visual_txt p {margin-top: 30px; font-size: 30px; font-weight: 100; line-height: 1.24; letter-spacing: 2px;} -->
+
+.section#visual .visual_content .btn_wrap {display: flex; column-gap: 20px; margin-top: 180px;} 
+.section#visual .btn_wrap .btn {width: 178px; height: 54px; border-radius: 54px; border: 2px solid #01B3FF; font-size: 16px; font-weight: 500; text-align: center; line-height: 54px; letter-spacing: -0.32px;backdrop-filter: blur(1.5px);}
+.section#visual .btn_wrap .btn span {position: relative; padding-right: 21px;}
+.section#visual .btn_wrap .btn span::after {content: ''; position: absolute; top: 50%; right: 0; width: 12px; height: 12px; background: url(./../img/ico_btnArrow.png) center no-repeat; transform: translateY(-50%);}
+<!-- --------------------------------- visual common css --------------------------------- -->
+
+
+<!-- --------------------------------- section notice css --------------------------------- -->
+#notice.section .section_inner {padding: 100px 0; text-align: center;}
+.notice_title {color: #fff; text-align: center;}
+.notice_title h3 {font-size: 45px; font-weight: 900;}
+.notice_title p {margin-top: 25px; font-size: 16px;}
+
+#notice.section .notice_list {display: inline-flex; justify-content: center; margin: 50px auto 0; padding: 20px 50px; border-radius: 30px; background-color: rgba(255, 255, 255, 0.2);}
+#notice.section .notice_list li {padding: 0 30px; border-left: 1px solid #fff; font-size: 15px;}
+#notice.section .notice_list li:first-child {border-left: 0 none;}
+
+#notice.section .notice_tbl {width: 800px; margin: 60px auto 0; color: #fff;}
+#notice.section .notice_tbl .tbl_title {font-size: 20px; text-align: left;}
+#notice.section .notice_tbl .tbl {width: 800px; margin-top: 30px; border-top: 3px solid #fff; border-bottom: 2px solid #fff; box-sizing: border-box;}
+#notice.section .notice_tbl thead {border-bottom: 2px solid rgba(255, 255, 255, 0.1);}
+#notice.section .notice_tbl th,
+#notice.section .notice_tbl td {padding: 16px 0;}
+#notice.section .notice_tbl tbody {font-size: 15px;}
+#notice.section .notice_tbl td.tbl_num.notice span {display: inline-block; padding: 6px 16px; border-radius: 16px; background-color: rgba(255, 255, 255, 0.1); font-size: 14px;}
+#notice.section .notice_tbl td.tbl_detail {width: 500px;}
+#notice.section .notice_tbl td.tbl_detail p {width: 500px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 1.2;}
+
+#notice.section .notice_tbl .tbl_pagination {margin: 30px auto 0;}
+#notice.section .notice_tbl .tbl_pagination ul {display: flex; justify-content: center;}
+#notice.section .notice_tbl .tbl_pagination ul li a {margin: 15px; font-size: 12px; color: #fff; opacity: 0.3;}
+#notice.section .notice_tbl .tbl_pagination ul li.active a {font-size: 15px; opacity: 1;}
+*/
+
+/*
+<!-- --------------------------------- section notice css --------------------------------- -->
+*/
+
+.timeline{width:400px;margin:50px auto;padding-left:20px; border-left:6px solid #fff;border-radius:0%;}
+.timeline li{margin:2em 0;list-style-type:none;position:relative;}
+.timeline li input{display:none;}
+.timeline li .lab{margin:23px 0 10px;display:inline-block;font-size:20px;letter-spacing:1px;cursor:pointer;
+animation: slide 2s ease-out;}
+.timeline li .date{position:absolute;left:-200px;top:50%;margin-top:-7px;font-size:18px;}
+.timeline li .circle{width:12px;height:12px;position:absolute;left:-29px;top:50%;margin-top:-4px;border:3px solid #fff;background-color:#4377E6;border-radius:50%;}
+.timeline li .content{max-height:50px;border:2px solid transparent;padding:0px 10px 20px 0px;border-radius:10px;position:relative;transition:max-height 0.3s linear,border-color 0.3s linear,transform 0.2s ease,padding 0.3s linear;}
+.timeline li .content p{font-size:16px;color:transparent;transition:color 0.2s linear;}
+.timeline li .content:before,.timeline li .content:after{width:0px;height:0px;position:absolute;top:50%;right:100%;border:solid transparent;content:"";}
+.timeline li .content:before{border-width:15px;border-right-color:inherit;margin-top:-12px;}
+.timeline li .content:after{border-width:13px;border-right-color:black;margin-top:-10px;}
+
+.timeline input:checked ~ .content{min-height:100px;padding-left:20px;border-color:#fff;}
+.timeline input:checked ~ .content p{color:#fff;transition-delay:0.3s;transition-duration:0.5s;}
+.timeline input:checked ~ .content .lab{cursor:auto;}
+
+
+/*
+h1 {
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.slideshow {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 320px;
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding: 0 10px;
+    overflow: hidden;
+  }
+  
+  #image {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .navigation div {
+    position:relative; <!-- 추가한 부분 -->
+    top:10px; <!-- 추가한 부분 -->
+    margin-bottom: 10px;
+    padding: 5px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+  }
+  
+  #prev {
+    float: left;
+  }
+  
+  #next {
+    float: right;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  
+  <-- our developing 부분 -->
+  h1 {
+    font-size: 35px;
+    text-align: center;
+    padding: 4% 0px;
+    letter-spacing: 1px;
+      font-family: "Rowdies", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  }
+  
+  <!-- div변경과 관련된 코드입니다.
+  색 등의 디자인은 보이기 위해서 표시해놨으니
+  스타일 추가 및 변경이 가능합니다. -->
+  .main input[type=radio] {
+      display: none;
+  }
+  #tab-1:checked ~ .tab label:nth-child(1),
+  #tab-2:checked ~ .tab label:nth-child(2),
+  #tab-3:checked ~ .tab label:nth-child(3),
+  #tab-4:checked ~ .tab label:nth-child(4) {
+      background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+  }
+  .content > div {
+      display: none;
+  }
+  #tab-1:checked ~ .content div:nth-child(1),
+  #tab-2:checked ~ .content div:nth-child(2),
+  #tab-3:checked ~ .content div:nth-child(3),
+  #tab-4:checked ~ .content div:nth-child(4)  {
+      display: block;
+  }
+  .main {
+    margin: 0 auto;
+  }
+  .tab {
+    overflow: hidden;
+    margin-top: 50px;
+  }
+  .tab label {
+      font-size: 18px;
+      cursor: pointer;
+      font-family: "Archivo Black", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      float: left;
+      width: 25%;
+      text-align: center;
+      padding: 15px 0;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 2px;
+      user-select: none;
+      -webkit-user-select: none;
+  }
+  .main_wrap  {
+    margin-top: 100px;
+  }
+  .main_wrap .content {
+    background-color: rgba(255, 255, 255, 0.2);
+    min-height: 250px;
+      font-family: "Rowdies", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  }
+  .main_wrap .content > div{
+     padding: 30px;
+     line-height: 1.5;
+     font-size: 17px;
+  }
+  
+  <!-- animation -->
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      <!-- height: 5vh; ★ 페이지를 길게 만들어 스크롤 가능하게 함 -->
+  }
+  .container2 {
+       <!-- margin-top: 10vh; ★ 스크롤을 내려서 특정 위치에 도달하도록 함 -->
+      text-align: center;
+  }
+  .text {
+      display: inline-block;
+      opacity: 0;
+      font-size: 2em;
+      animation: fadeIn 5s forwards;
+      <!--
+      font-family: "Kanit", sans-serif;
+      font-weight: 800;
+      font-style: normal;
+      -->
+      <!--
+      font-family: "Anton", sans-serif;
+      font-weight: 600;
+      font-style: normal;
+      -->
+      <!--
+        font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  -->
+  font-family: "Rowdies", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  }
+  @keyframes fadeIn {
+      from {
+          opacity: 0;
+          transform: translateX(-20px);
+      }
+      to {
+          opacity: 1;
+          transform: translateX(0);
+      }
+  }
+  
+  .inner .rect {
+    display:flex;
+    margin-top: 80px;
+  }
+  .inner {
+   width: 800px;
+   margin: 0 auto;
+   padding: 100px 0;
+  }
+  
+  
+  
+  .inner .part_introduction_text dl .part_introduction a {
+  position:relative;
+  font-size:20px;
+  left:50px;
+  
+  }
+  
+  .inner .part_introduction_text dl .part_introduction i {
+  position:relative;
+  font-size:15px;
+  left:80px;
+  
+  }
+  
+  .inner .img_rectangle_area {
+  position:relative;
+  width: 300px;
+  height: 150px;
+  <!-- background-color: red; -->
+  left: 70px;
+  top: 15%;
+  <!-- border-radius:15px;* -->
+  }
+  
+  .inner .img_rectangle_area dl .wood {
+  position:absolute; 
+  <!-- absolute vs relative 알아보기!! -->
+  top:85%;
+  left:10%;
+  font-size: 20px;
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width:160px;  
+  height:30px; 
+  }
+  
+  .inner .team_member dl .team a {
+  position:relative;
+  font-size:20px;
+  left:50px;
+  }
+  
+  .inner .rect {
+  justify-content: center;
+  gap: 20px;
+  }
+  
+  .inner .rectangle_area {
+  position:relative;
+  width: 300px;
+  height: 150px;
+  background-color: rgba(255,255,255,0.2);
+  left: 0%;
+  top: 15%;
+  <!- border-radius:15px; -->
+  }
+  
+  .inner .rectangle_area dl .Engineering1 {
+  position:absolute; 
+  top:50%;
+  left:10%;
+  font-size:15px;
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width:160px;  
+  height:30px; 
+  }
+  
+  .inner .rectangle_area dl .wood1 {
+  position:absolute; 
+  top:65%;
+  left:10%;
+  font-size: 20px;
+  
+  width:160px;  
+  height:30px; 
+  }
+  
+  .inner .rectangle_area2 {
+  position:relative;
+  width: 300px;
+  height: 150px;
+  background-color: black;
+    
+  left: 0%;
+  top: 15%;
+  <!-- border-radius:15px; -->
+  }
+  
+  .inner .rectangle_area2 dl .Engineering {
+  position:absolute; 
+  color:white;
+  top:50%;
+  left:10%;
+  font-size:15px;
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width:160px;  
+  height:30px; 
+  }
+  
+  .inner .rectangle_area2 dl .wood {
+  position:absolute; 
+  top:65%;
+  left:10%;
+  font-size: 20px;
+  color:white;
+  width:160px;  
+  height:30px; 
+  }
+  
+  .inner .rectangle_area3 {
+  position:relative;
+  width: 300px;
+  height: 150px;
+  background-color: black;
+  left: 0%;
+  top: 15%;
+  /*border-radius:15px;*/
+  }
+ 
+
+
+
+
+
+
+
+
+
+
+
+  .inner .rectangle_area3 dl .Engineering {
+  position:absolute; 
+  top:50%;
+  left:10%;
+  font-size:15px;
+    color:white;
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width:160px;  
+  height:30px; 
+  }
+  
+  .inner .rectangle_area3 dl .wood {
+  position:absolute; 
+  /*absolute vs relative 알아보기!! */
+  top:65%;
+  left:10%;
+  font-size: 20px;
+  color:white;
+  width:160px;  
+  height:30px; 
+  }
+  
+  .inner .rectangle_area4 {
+  position:relative;
+  width: 300px;
+  height: 150px;
+  background-color: black;
+  left: 0%;
+  top: 15%;
+  /*border-radius:15px;*/
+  }
+  
+  .inner .rectangle_area4 dl .Engineering {
+  position:absolute; 
+  /*absolute vs relative 알아보기!! */
+  top:50%;
+  left:10%;
+  font-size:15px;
+    color:white;
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width:160px;  
+  height:30px; 
+  }
+  
+  .inner .rectangle_area4 dl .wood {
+  position:absolute; 
+  /*absolute vs relative 알아보기!! */
+  top:65%;
+  left:10%;
+  font-size: 20px;
+  color:white;
+  width:160px;  
+  height:30px; 
+  }
+
+
+
+
+
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 100;
+  src: url(Pretendard-Thin.woff2) format("woff2"),
+    url(Pretendard-Thin.woff) format("woff"),
+    url(Pretendard-Thin.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 200;
+  src: url(Pretendard-ExtraLight.woff2) format("woff2"),
+    url(Pretendard-ExtraLight.woff) format("woff"),
+    url(Pretendard-ExtraLight.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 300;
+  src: url(Pretendard-Light.woff2) format("woff2"),
+    url(Pretendard-Light.woff) format("woff"),
+    url(Pretendard-Light.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  src: url(Pretendard-Regular.woff2) format("woff2"),
+    url(Pretendard-Regular.woff) format("woff"),
+    url(Pretendard-Regular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  src: url(Pretendard-Medium.woff2) format("woff2"),
+    url(Pretendard-Medium.woff) format("woff"),
+    url(Pretendard-Medium.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  src: url(Pretendard-SemiBold.woff2) format("woff2"),
+    url(Pretendard-SemiBold.woff) format("woff"),
+    url(Pretendard-SemiBold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  src: url(Pretendard-Bold.woff2) format("woff2"),
+    url(Pretendard-Bold.woff) format("woff"),
+    url(Pretendard-Bold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 800;
+  src: url(Pretendard-ExtraBold.woff2) format("woff2"),
+    url(Pretendard-ExtraBold.woff) format("woff"),
+    url(Pretendard-ExtraBold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 900;
+  src: url(Pretendard-Black.woff2) format("woff2"),
+    url(Pretendard-Black.woff) format("woff"),
+    url(Pretendard-Black.otf) format("opentype");
+}
+*/
+  </style>
+</head>
+
+<body>
+  <!-- wrap -->
+  <div id="wrap">
+    <!-- content [S] -->
+    <main id="content">
+      <!-- visual [S] -->
+      <section id="visual" class="section">
+        <div class="section_inner">
+          <div class="visual_content">
+            <!--
+            <div class="visual_txt">
+              <h2 data-aos="fade-right">KKSC</h2>
+              <!-- <p data-aos="fade-right" data-aoss-delay="200">Korea king Social Club</p> 
+            </div>
+            <div class="btn_wrap" data-aos="fade-right" data-aos-delay="300">
+              <a href="#" class="btn"><span>프로젝트 보러가기</span></a>
+              <a href="#" class="btn"><span>지원하기</span></a>
+            </div>
+-->
+          </div>
+        </div>
+      </section>
+      <!-- visual [E] -->
+      <div class="inner">
+
+<!-- 
+        <div class=part_introduction_text>
+          <dl>
+            <dt class="part_introduction">
+  
+              <div class="container2">
+                <span class="text">PART INTRODUCTION</span>
+              </div>
+  
+              <br>
+  
+              <i>
+                Introduction of our part
+              </i>
+            </dt>
+          </dl>
+        </div>-->
+  
+        <!-- <div class=frontend_image>
+          <img src = home.png>
+          <div class="img_rectangle_area">
+            <dl>
+              <dt class="Engineering">
+                <img src=front.png>
+              </dt>
+              <dt class="wood">
+                <b>Frontend</b>
+              </dt>
+            </dl>
+          </div>
+        </div>
+        <div class="notice_title">
+          <h3>PART INTRODUCTION</h3>
+          <p>TEAM MEMBER</p>
+        </div>
+        <div class="team_member">
+          <dl>
+            <dt class="team">
+              <div class="container2">
+                 <span class="text">TEAM MEMBER</span> 
+              </div>
+            </dt>
+          </dl>
+        </div>
+        <div class="rect">
+  
+          <div class="rectangle_area">
+            <dl>
+              <dt class="Engineering1">
+                Head of Front
+              </dt>
+              <dt class="wood1">
+                <b>김한성</b>
+              </dt>
+  
+              
+            </dl>
+          </div>
+          <div class="rectangle_area2">
+            <dl>
+              <dt class="Engineering">
+                Member of Front
+              </dt>
+              <dt class="wood">
+                <b>심주혜</b>
+              </dt>
+            </dl>
+          </div>
+          <div class="rectangle_area3">
+            <dl>
+              <dt class="Engineering">
+                Member of Front
+              </dt>
+              <dt class="wood">
+                <b>손수민</b>
+              </dt>
+            </dl>
+          </div>
+          <div class="rectangle_area4">
+            <dl>
+              <dt class="Engineering">
+                Member of Front
+              </dt>
+              <dt class="wood">
+                <b>경제진</b>
+              </dt>
+            </dl>
+          </div>
+        </div>
+  
+        <div class="slideshow">
+          <div class="navigation">
+            <div id="prev" class="prev">PREV</div>
+            <div id="next" class="next">NEXT</div>
+          </div>
+          <img id="image" src="">
+        </div>
+  
+        <div class="main_wrap">
+          <div class="notice_title">
+            <h3>Our developing Plans</h3>
+          </div>
+          <div class="main">
+            <input type="radio" id="tab-1" name="show" checked />
+            <input type="radio" id="tab-2" name="show" />
+            <input type="radio" id="tab-3" name="show" />
+            <input type="radio" id="tab-4" name="show" />
+            <div class="tab">
+              <label for="tab-1">Frontend</label>
+              <label for="tab-2">Backend1</label>
+              <label for="tab-3">Backend2</label>
+              <label for="tab-4">Backend3</label>
+            </div>
+            <div class="content">
+              <div class="content-dis">
+                <게시판> &nbsp <회원 관리> &nbsp <공지사항> &nbsp <캘린더>
+              </div>
+              <div class="content-dis">
+                회원관리 시스템 구현<br>
+  
+                -회원 가입 및 로그인 기능 개발<br>
+                -데이터베이스 설계 및 회원 테이블 생성<br>
+                -회원 가입 폼 및 유효성 검사 구현<br>
+                -로그인 폼 및 인증 시스템 구현<br>
+                -비밀번호 암호화 및 복구 기능 개발<br>
+                -회원 프로필 관리<br>
+                -프로필 보기 및 수정 기능 구현<br>
+                -프로필 사진 업로드 기능 개발<br>
+                -권한 관리<br>
+                -관리자, 일반 회원, 준회원 등 권한별 기능 제한 설정<br>
+  
+              </div>
+              <div class="content-dis">
+  
+                게시판 시스템 구현<br>
+                -게시판 구조 설계 및 구현
+                <br>
+                -데이터베이스 설계 및 게시글 테이블 생성<br>
+                -게시글 작성, 수정, 삭제 기능 구현<br>
+                -게시글에 파일(아이디어 문서, 코드 등) 업로드 기능 구현<br>
+                -댓글 및 답글 기능<br>
+                -댓글 작성, 수정, 삭제 기능 구현<br>
+                -답글 작성 기능 추가<br>
+                -공지사항 게시판 구현<br>
+                -공지사항 작성, 수정, 삭제 기능 구현<br>
+  
+              </div>
+              <div class="content-dis">
+  
+                푸시알림 및 캘린더 기능 구현<br>
+  
+                -데이터베이스 설계 및 공지사항 테이블 생성<br>
+                -푸시 알림 기능<br>
+                -새로운 공지사항 작성 시 이메일 또는 웹 푸시 알림 시스템 구현<br>
+                -캘린더 기능 구현<br>
+                -데이터베이스 설계 및 일정 테이블 생성<br>
+                -캘린더 UI 구현 (일정 추가, 수정, 삭제 기능 포함) <br>
+                -이벤트 등록 및 참가 신청 <br>
+                -이벤트 등록 폼 및 유효성 검사 구현 <br>
+                -참가 신청 기능 및 참가자 명단 관리 기능 구현 <br>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+
+      </div>
+      <section id="notice" class="section">
+        <div class="section_inner">
+          <div class="notice_content">
+            <div class="notice_title">
+              <h3>KKSC NOTICE</h3>
+              <p>우리들의 이야기를 확인해 보세요.</p>
+            </div>
+            <ul class="notice_list">
+              <li><a href="#">공지사항</a></li>
+              <li><a href="#">갤러리</a></li>
+              <li><a href="#">1:1 문의</a></li>
+            </ul>
+
+            <div class="notice_tbl">
+              <h4 class="tbl_title">공지사항</h4>
+              <table class="tbl">
+                <caption>KKSC 공지사항</caption>
+                <colgroup>
+                  <col style="width: 150px;">
+                  <col style="width:500px;">
+                  <col>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>등록일</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="tbl_num notice"><span>공지</span></td>
+                    <td class="tbl_detail"><p><a href="#">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십</a></p></td>
+                    <td class="tbl_date"><span>2024.06.16</span></td>
+                  </tr>
+                  <tr>
+                    <td class="tbl_num"><span>1</span></td>
+                    <td class="tbl_detail"><p><a href="#">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십</a></p></td>
+                    <td class="tbl_date"><span>2024.06.16</span></td>
+                  </tr>
+                  <tr>
+                    <td class="tbl_num"><span>2</span></td>
+                    <td class="tbl_detail"><p><a href="#">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십</a></p></td>
+                    <td class="tbl_date"><span>2024.06.16</span></td>
+                  </tr>
+                  <tr>
+                    <td class="tbl_num"><span>3</span></td>
+                    <td class="tbl_detail"><p><a href="#">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십</a></p></td>
+                    <td class="tbl_date"><span>2024.06.16</span></td>
+                  </tr>
+                  <tr>
+                    <td class="tbl_num"><span>4</span></td>
+                    <td class="tbl_detail"><p><a href="#">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십</a></p></td>
+                    <td class="tbl_date"><span>2024.06.16</span></td>
+                  </tr>
+                  <tr>
+                    <td class="tbl_num"><span>5</span></td>
+                    <td class="tbl_detail"><p><a href="#">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십</a></p></td>
+                    <td class="tbl_date"><span>2024.06.16</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            
+              <div class="tbl_pagination">
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li class="active"><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                </ul>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- notice [E] -->
+
+      <ul class="timeline">
+        <li>
+          <input type="radio" id="s1" name="section" />
+          <span class="date">24.03.01 ~ 24.03.10
+          </span>
+          <span class="circle"></span>
+          <div class="content">
+            <label class="lab" for="s1">모집기간</label>
+            <p>모집기간</p>
+          </div>
+        </li>
+        <li>
+          <input type="radio" id="s2" name="section" />
+          <span class="date">24.03.11</span>
+          <span class="circle"></span>
+          <div class="content">
+            <label class="lab" for="s2">서류발표</label>
+            <p>서류발표</p>
+          </div>
+        </li>
+        <li>
+          <input type="radio" id="s3" name="section" />
+          <span class="date">24.03.13 ~ 24.03.15</span>
+          <span class="circle"></span>
+          <div class="content">
+            <label class="lab" for="s3">면접일정</label>
+            <p>면접일정</p>
+          </div>
+        </li>
+        <li>
+          <input type="radio" id="s4" name="section" />
+          <span class="date">24.03.16</span>
+          <span class="circle"></span>
+          <div class="content">
+            <label class="lab" for="s4">최종발표</label>
+            <p>최종발표</p>
+          </div>
+        </li>
+        <li>
+          <input type="radio" id="s5" name="section" />
+          <span class="date">24.03.18</span>
+          <span class="circle"></span>
+          <div class="content">
+            <label class="lab" for="s5">신규 동아리원 설명회 및 환영회</label>
+            <p>신규 동아리원 설명회 및 환영회</p>
+          </div>
+        </li>
+      </ul>
+
+
+    </main>
+     <!-- content [E] -->
+  </div>
+  <!-- //wrap -->
+
+  <script src="./js/common.js"></script>
+</body>
+<script>
+  //prev and next
+getSlides(null, 1, function (response) {
+  console.log(response);
+  $("#image").attr("src", response.slides[0].img_url);
+});
+
+var Slideshow = (function () {
+
+  return {
+    nextSlide: function () {
+      // TODO
+      const text = '출력할 메시지';
+      alert(text);
+    },
+    prevSlide: function () {
+      // TODO
+      const text = '출력할 메시지';
+      alert(text);
+    },
+  };
+
+})();
+
+function getSlides(id, count, callback) {
+  var endpoint = 'http://www.lonny.com/api/v1/cached/photos',
+    params = [];
+  if (id) params.push('slide_id=' + id);
+  params.push('filters[]=Kitchen');
+  params.push('count=' + count);
+  params.push('offset=' + (id ? 0 : -1));
+  $.ajax({
+    url: endpoint + '?' + params.join('&')
+  }).done(callback);
+}
+
+/**
+ * Bind clicks on the page buttons
+ */
+$('#next').click(function () {
+  Slideshow.nextSlide(); // navigate to the next slide
+});
+$('#prev').click(function () {
+  Slideshow.prevSlide(); // navigate to the previous slide
+});
+
+/**
+ * Bind the keyboard arrows
+ */
+$(document).keydown(function (e) {
+  switch (e.which) {
+    case 37: // left
+      Slideshow.prevSlide(); // navigate to the previous slide
+      break;
+    case 39: // right
+      Slideshow.nextSlide(); // navigate to the next slide
+      break;
+    default: return;
+  }
+  // prevent the default action (scroll / move caret)
+  e.preventDefault();
+});
+
+
+
+function getSlides(id, count, callback) {
+  var endpoint = 'http://www.lonny.com/api/v1/cached/photos',
+    params = [];
+  if (id) params.push('slide_id=' + id);
+  params.push('filters[]=Kitchen');
+  params.push('count=' + count);
+  params.push('offset=' + (id ? 0 : -1));
+  $.ajax({
+    url: endpoint + '?' + params.join('&')
+  }).done(callback);
+}
+
+/**
+ * Bind clicks on the page buttons
+ */
+$('#next').click(function () {
+  Slideshow.nextSlide(); // navigate to the next slide
+});
+$('#prev').click(function () {
+  Slideshow.prevSlide(); // navigate to the previous slide
+});
+
+/**
+ * Bind the keyboard arrows
+ */
+$(document).keydown(function (e) {
+  switch (e.which) {
+    case 37: // left
+      Slideshow.prevSlide(); // navigate to the previous slide
+      break;
+    case 39: // right
+      Slideshow.nextSlide(); // navigate to the next slide
+      break;
+    default: return;
+  }
+  // prevent the default action (scroll / move caret)
+  e.preventDefault();
+});
+
+
+
+
+//animation
+document.addEventListener('scroll', function () {
+  var container = document.querySelector('.container2');
+  var containerPosition = container.getBoundingClientRect().top;
+  var screenPosition = window.innerHeight;
+
+  if (containerPosition < screenPosition) {
+    var textElements = document.querySelectorAll('.text');
+    textElements.forEach((el, index) => {
+      el.style.animationDelay = (index * 0.1) + 's';
+      el.style.opacity = 1; // 애니메이션 시작 시 투명도 설정
+    });
+  }
+});
+  </script>
+</html>
