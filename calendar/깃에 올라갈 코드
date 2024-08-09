@@ -1,0 +1,625 @@
+깃에 올라갈 코드
+<script>
+  var isBool;
+  var isButton = true;
+  let today = new Date();
+var spanEl2;
+let currentDate;
+var participation_member;
+var participation_member_full;
+var isPM = 1;
+var isPM2 = 1;
+
+
+const event_name = document.querySelector('.event_name');
+const Today = document.querySelector('.today');
+
+let DATA = {
+  
+};
+
+Date.prototype.format = function () {
+  var yyyy = this.getFullYear();
+  var month = (this.getMonth() + 1);
+  var dd = this.getDate();
+  var format = [yyyy, month, dd].join('-');
+  return format;
+}
+
+Date.prototype.format2 = function () {
+  var yyyy = this.getFullYear();
+  var month = (this.getMonth() + 1);
+  var format = [yyyy, month].join('-');
+  return format;
+}
+
+window.onload = function () {
+const calendarBody = document.querySelector('.calendar-body');
+const prevEl = document.querySelector('.prev');
+const nextEl = document.querySelector('.next');
+const inputBox = document.querySelector('.input-box');
+const inputBtn = document.querySelector('.input-btn');
+const inputList = document.querySelector('.todoList');
+const showList = document.querySelector('.showList');
+const listText = document.querySelector('.listText');
+const createDate = document.querySelector('.createDate');
+const bgblack = document.querySelector('.bgblack');
+const closedBtn = document.querySelector('.closed');
+  
+  
+buildCalendar();
+function buildCalendar() {
+  let firstDate = new Date(today.getFullYear(), today.getMonth(), 1);
+  const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const leapYear = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const notLeapYear = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const headerYear = document.querySelector('.current-year-month');
+  
+  if (firstDate.getFullYear() % 4 === 0) {
+    pageYear = leapYear;
+  } 
+  
+  else {
+    pageYear = notLeapYear;
+  }
+  
+  headerYear.innerHTML = `${monthList[firstDate.getMonth()]}&nbsp;&nbsp;&nbsp;&nbsp;${today.getFullYear()}`;
+  makeElement(firstDate);
+  currentDate = today.format();
+  resetInsert();
+}
+ 
+function makeElement(firstDate) {
+  let weekly = 100;
+  let dateSet = 1;
+  for (let i = 0; i < 5; i++) {
+    let weeklyEl = document.createElement('div');
+    weeklyEl.setAttribute('class', weekly);
+    weeklyEl.setAttribute('id', "weekly");
+    for (let j = 0; j < 7; j++) 
+    {
+      if (i === 0 && j < firstDate.getDay() || dateSet > pageYear[firstDate.getMonth()]) 
+      {
+        let dateEl = document.createElement('div');
+        weeklyEl.appendChild(dateEl);
+      } 
+      
+      else 
+      {
+        let dateEl = document.createElement('div');
+        dateEl.textContent = dateSet;
+        dateEl.setAttribute('class', dateSet);
+        dateEl.setAttribute('id', `${today.format2()}-${dateSet}`);
+        weeklyEl.appendChild(dateEl);
+        dateSet++;
+      }
+    }
+    weekly++; 
+    calendarBody.appendChild(weeklyEl);
+  }
+}
+
+function removeCalendar() {
+  let divEls = document.querySelectorAll('.calendar-body > #weekly > div');
+  for (let i = 0; i < divEls.length; i++)   {
+    divEls[i].remove();
+  }
+}
+  
+function updateCalendar() {
+  let event_name = document.querySelector('.event_name'); 
+  event_name.innerHTML = ''; 
+          
+  if (DATA[currentDate]) 
+  {
+    for (let i = 0; i < DATA[currentDate].length; i++) 
+    {
+      event_name.innerHTML += DATA[currentDate][i].todo + '<br>'; 
+        const listItems = document.querySelectorAll('li');
+        const texts = Array.from(listItems).map(item => item.textContent.trim());
+        console.log("texts : " + texts);
+        texts.forEach(text => {
+            console.log("texts : " + text);
+        });
+      
+      
+    }
+  } 
+      
+  else 
+  {
+    event_name.innerHTML = "일정 없음";
+  }
+  console.log(event_name.innerHTML);
+}
+  // setInterval(updateCalendar, 5000);
+  
+  function cle() {
+localStorage.clear();
+  }
+  // cle();
+DATA['2024-8-2'] = [
+  { id: 1, todo: 'KKSC 회의' },
+];
+
+DATA['2024-8-9'] = [
+  { id: 2, todo: 'KKSC 웹 완성' },
+];
+
+
+// 로컬 스토리지에 저장
+localStorage.setItem('2024-8-2', JSON.stringify(DATA['2024-8-2']));
+localStorage.setItem('2024-8-9', JSON.stringify(DATA['2024-8-9']));
+
+// cle();
+  
+prevEl.addEventListener('click', function () {
+  today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+  removeCalendar();
+  buildCalendar();
+  resetInsert();
+  redrawLi();
+});
+  
+nextEl.addEventListener('click', function () {
+  today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+  removeCalendar();
+  buildCalendar();
+  resetInsert();
+  redrawLi();
+});
+
+calendarBody.addEventListener('click', function (e) {
+        const listItems = document.querySelectorAll('li');
+
+        // 백엔드에 쏠 데이터 4!!
+        const texts = Array.from(listItems).map(item => item.textContent.trim());
+        console.log("calendar body click : " + texts);
+        texts.forEach(text => {
+            console.log("calendar body click foreach : " + text);
+        });
+  
+
+  if (isPM2 === 0) {
+          event_name.innerHTML = "접근 권한이 없습니다.";
+          }
+
+          else {
+            event_name.innerHTML = texts;
+          }
+  
+  
+  
+  let target = e.target;
+  let eachDate = document.querySelectorAll('.calendar-body > #weekly > div');
+  for (let i = 0; i < eachDate.length; i++) 
+  {
+   eachDate[i].classList.remove('active');
+   isBool = false;
+  } 
+  isBool = true;
+  target.classList.add('active');
+  today = new Date(today.getFullYear(), today.getMonth(), target.innerHTML);
+  currentDate = today.format();
+  redrawLi();
+  resetInsert();
+  updateCalendar2();
+});
+
+
+/*새로 추가*/
+function updateCalendar2() {
+    event_name.innerHTML = ''; 
+    
+    if (DATA[currentDate]) {
+        for (let i = 0; i < DATA[currentDate].length; i++) {
+            event_name.innerHTML += DATA[currentDate][i].todo + '<br>'; 
+        }
+    } else {
+        event_name.innerHTML = "일정 없음";
+    }
+    console.log(event_name.innerHTML);
+}
+
+
+inputBtn.addEventListener('click', function (e) {
+  alert(inputValue);
+  if (isPM === 0) {
+    alert("접근 권한이 없습니다.");
+  }
+  
+  else {
+    if(isButton) {
+      alert("InputBtn 내 isButton : " + isButton);
+      e.preventDefault();
+      let inputValue = inputBox.value;
+      insertTodo(inputValue);
+      isButton = false;
+    }
+    else {
+      alert("InputBtn 내 isButton : " + isButton);
+    }
+  }
+  
+});
+
+
+closedBtn.addEventListener('click', function(e){
+  showList.style.display = "none";
+});
+
+function insertTodo(text) {
+  let todoObj = {
+    todo: text,
+  }
+  
+  if (!DATA[currentDate]) 
+  {
+    // 백에 쏠 데이터 5!!
+    DATA[currentDate] = [];
+    DATA[currentDate].push(todoObj);
+    console.log(DATA[currentDate]);
+    isButton = true;
+    alert("isButton : " + isButton);
+  } 
+  
+  else 
+  {
+    DATA[currentDate].push(todoObj);
+    console.log(DATA[currentDate]);
+    isButton = false;
+    alert("isButton : " + isButton);
+  }
+  const liEl = document.createElement('li');
+  const spanEl = document.createElement('span');
+  const delBtn = document.createElement('button');
+  delBtn.setAttribute('class', 'del-data');
+  liEl.setAttribute('id', DATA[currentDate].length);
+  spanEl.innerHTML = text;
+  liEl.appendChild(spanEl);
+  liEl.appendChild(delBtn);
+  inputList.appendChild(liEl);
+  
+  
+  // 수정
+  const editBtn = document.createElement('button');
+  editBtn.innerText = "EDIT";
+  liEl.appendChild(editBtn);
+  editBtn.addEventListener('click', () => re(liEl.id));
+
+  delBtn.addEventListener('click', delWork);
+  liEl.addEventListener('dblclick', showTodo);
+  todoObj.id = DATA[currentDate].length;
+  localStorage.setItem(currentDate, JSON.stringify(DATA[currentDate]));
+  inputBox.value = '';
+}
+
+  
+  //수정
+function re(id) {
+  const newText = prompt("Enter the new text:");
+  if (newText) {
+    const todoItem = DATA[currentDate].find(item => item.id === parseInt(id));
+    if (todoItem) {
+      todoItem.todo = newText;
+      localStorage.setItem(currentDate, JSON.stringify(DATA[currentDate]));
+      updateUI();
+    }
+  }
+}
+
+
+  //수정 
+function updateUI() {
+  inputList.innerHTML = '';
+  DATA[currentDate].forEach(item => {
+    const liEl = document.createElement('li');
+    const spanEl = document.createElement('span');
+    const delBtn = document.createElement('button');
+    const editBtn = document.createElement('button');
+    
+    // delBtn.innerText = "DEL";
+    delBtn.setAttribute('class', 'del-data');
+    editBtn.innerText = "EDIT";
+    
+    liEl.setAttribute('id', item.id);
+    spanEl.innerHTML = item.todo;
+    alert(spanEl.innerHTML);
+    
+    liEl.appendChild(spanEl);
+    liEl.appendChild(delBtn);
+    liEl.appendChild(editBtn);
+    inputList.appendChild(liEl);
+    
+    delBtn.addEventListener('click', delWork);
+    editBtn.addEventListener('click', () => re(item.id));
+    liEl.addEventListener('dblclick', showTodo);
+  });
+}
+
+function redrawLi() {
+  let liEls = document.querySelectorAll('li');
+  liEls.forEach(li => inputList.removeChild(li));
+  if (DATA[currentDate]) {
+    DATA[currentDate].forEach(todo => {
+      const liEl = document.createElement('li');
+      const spanEl = document.createElement('span');
+      const delBtn = document.createElement('button');
+
+      delBtn.setAttribute('class', 'del-data');
+      spanEl.innerHTML = todo.todo;
+      liEl.appendChild(spanEl);
+      liEl.appendChild(delBtn);
+      liEl.setAttribute('id', todo.id);
+      inputList.appendChild(liEl);
+
+      delBtn.addEventListener('click', delWork);
+      liEl.addEventListener('dblclick', showTodo);
+      if (currentDate === '2024-8-2') {
+        spanEl.innerText = 'KKSC 회의';
+      }
+      if (currentDate === '2024-8-9') {
+        spanEl.innerText = 'KKSC 웹 완성';
+      }
+    });
+  }
+}
+
+function resetInsert() {
+  let storeObj = localStorage.getItem(currentDate);
+  if (storeObj !== null) {
+    let liEl = document.querySelectorAll('LI');
+    
+    for (let i = 0; i < liEl.length; i++)     {
+      inputList.removeChild(liEl[i]);
+    }
+    const parsed = JSON.parse(localStorage.getItem(currentDate));
+    
+    parsed.forEach(function (todo) {
+      if (todo) {
+        let lili = document.createElement('li');
+        let spanspan = document.createElement('span');
+        let deldel = document.createElement('button');
+        deldel.setAttribute('class', 'del-data');
+        lili.setAttribute('id', todo.id);
+        spanspan.innerHTML = todo.todo;
+        lili.appendChild(spanspan);
+        lili.appendChild(deldel);
+        inputList.appendChild(lili);
+        deldel.addEventListener('click', delWork);
+        lili.addEventListener('dblclick', showTodo);
+      }
+    });
+  }
+}
+resetInsert();
+
+function delWork(e) {
+  e.preventDefault();
+  let delParentLi = e.target.parentNode;
+  inputList.removeChild(delParentLi);
+  const cleanToDos = DATA[currentDate].filter(function (todo)     {
+    return todo.id !== parseInt(delParentLi.id);
+  });
+  DATA[currentDate] = cleanToDos;
+  localStorage.setItem(currentDate, JSON.stringify(DATA[currentDate]));
+}
+
+function showTodo(e){
+  showList.style.display = "block"; 
+  listText.textContent = e.target.textContent;
+  
+  
+  
+  const elementId = e.target.id;
+  console.log("Element ID:", elementId);
+  
+}
+  
+  
+  
+  
+  
+  
+  
+var inp = document.querySelector('#userName');
+var but = document.querySelector('#userButton');
+var namelist = document.querySelector('#nameList');
+    const wrapper = document.querySelector('.wrapper2');
+    
+    if (wrapper) {
+      wrapper.addEventListener('click', function() {
+        if (Today && isBool) {
+          
+          
+          if (isPM2 === 0) {
+
+          Today.innerHTML = "접근 권한이 없습니다.";
+          }
+
+          else {
+            Today.innerHTML = currentDate;
+          }
+        }  
+          
+        else {
+            alert(".today 클래스를 가진 요소를 찾을 수 없습니다.");
+          }
+        
+      });
+    } 
+    else {
+      console.log('.wrapper2 클래스를 가진 요소를 찾을 수 없습니다.');
+    }
+
+    function del() {
+  var cla = document.querySelectorAll('.num'); 
+
+  for (var i = 0; i < cla.length; i++) {
+    cla[i].addEventListener('click', function() {
+      // 백에 쏠 데이터 3!!
+      var parentText = this.parentNode.textContent.replace(' X', '');
+
+      alert("클릭된 이름: " + parentText);
+
+      if (this.parentNode) {
+        this.parentNode.remove();
+      }
+    });
+  }
+}
+
+but.addEventListener('click', function(e) 
+{
+  e.preventDefault();
+    if(inp.value != null) 
+    {
+      
+    
+    var p = document.createElement('p');
+    namelist.appendChild(p);
+
+    // 밑에께 백에 쏠 데이터 2!!
+    p.textContent = inp.value + " " + currentDate;
+    var span = document.createElement('span');
+    p.appendChild(span);
+    span.textContent = ' X';
+    span.setAttribute('class', 'num');
+    inp.value ='';
+    inp.focus();
+    namelist.insertBefore(p, namelist.childNodes[0]);
+    }
+  del();
+});
+
+
+/*
+// 보내기 ()
+// 사용 링크 : https://fansor.tistory.com/13
+fetch(url, options)
+  .then((response) => console.log("response:", response))
+  .catch((error) => console.log("error:", error));
+
+//GET 요첟
+fetch("localhost:3000/api/user")
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+//POST 요청
+fetch("localhost:3000/api/user", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    loginId: "id",
+    password: "1234",
+  }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+//PUT 요청
+fetch("localhost:3000/api/user", {
+  method: "PUT",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    loginId: "id",
+    password: "1234",
+  }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+//DELETE 요청
+fetch("localhost:3000/api/user", {
+  method: "DELETE",
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+*/
+
+
+
+/*
+// 가져오기 ()
+// 사용 링크
+// 1. https://jsonplaceholder.typicode.com/
+// 2. https://jsonplaceholder.typicode.com/posts
+// 3. https://myeongsu0257.tistory.com/123
+const getData = async () => {
+    try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts"); 
+        // https://jsonplaceholder123.typicode.com/posts로 쓰면 catch문에서 걸림
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.log(`error : ${error}`);
+    }
+};
+
+getData();
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 새로 추가한 내용 - 오류에 대한 팝업 출력
+
+var isTrue = false;
+
+if (isTrue) {
+document.getElementById('showPopupBtn').addEventListener('click', function() {
+  
+  
+  
+    // a.close 요소 선택
+    // const closeBtn = document.querySelector('a.close');
+    // 텍스트 내용 변경
+    // closeBtn.innerText = '닫기';
+  
+  
+  
+    document.getElementById('Popup1').classList.add('show');
+    document.getElementById('overlay').classList.add('show');
+});
+
+document.getElementById('closePopupBtn').addEventListener('click', function() {
+    document.getElementById('Popup1').classList.remove('show');
+    document.getElementById('overlay').classList.remove('show');
+});
+
+document.getElementById('overlay').addEventListener('click', function() {
+    document.getElementById('Popup1').classList.remove('show');
+    document.getElementById('overlay').classList.remove('show');
+});
+}
+  
+  
+  
+  
+  
+}
+
+/*
+function save() {
+  localStorage.setItem(currentDate, JSON.stringify(DATA[currentDate]));
+}
+*/
+</script>
